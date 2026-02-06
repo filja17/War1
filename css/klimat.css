@@ -95,20 +95,7 @@
    TYTUŁ SEKCJI
    ======================================== */
 
-.klimat-title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: var(--font-heading);
-    font-size: clamp(4rem, 20vw, 12rem);
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.08);
-    z-index: 6;
-    pointer-events: none;
-    white-space: nowrap;
-    letter-spacing: 0.1em;
-}
+
 
 /* ========================================
    NAPISY - WYCENTROWANE I LEWITUJĄCE
