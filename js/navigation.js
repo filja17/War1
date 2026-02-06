@@ -1,267 +1,157 @@
 /* ========================================
-   NAVIGATION.JS
-   Menu mobilne, hamburger, overlay
+   NAVIGATION.JS - KOMPLETNA POPRAWIONA WERSJA
    ======================================== */
 
-'use strict';
+(function() {
+    'use strict';
 
-class MobileNavigation {
-    constructor() {
-        this.nav = null;
-        this.menu = null;
-        this.hamburger = null;
-        this.overlay = null;
-        this.isOpen = false;
-        this.focusableElements = [];
-        
-        this.init();
+    // Poczekaj na DOM
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNavigation);
+    } else {
+        initNavigation();
     }
-    
-    init() {
-        this.nav = document.querySelector('.nav');
-        this.menu = document.querySelector('.nav__menu');
-        this.hamburger = document.querySelector('.nav__hamburger');
+
+    function initNavigation() {
+        const hamburger = document.querySelector('.nav__hamburger');
+        const menu = document.querySelector('.nav__menu');
+        const body = document.body;
+        const navLinks = document.querySelectorAll('.nav__link');
         
-        if (!this.nav || !this.menu || !this.hamburger) return;
+        // Sprawdź czy elementy istnieją
+        if (!hamburger || !menu) {
+            console.warn('Navigation: Brak wymaganych elementów');
+            return;
+        }
+
+        // Stan menu
+        let isOpen = false;
+        let isAnimating = false;
+
+        // ========================================
+        // FUNKCJE
+        // ========================================
         
-        // Utwórz overlay
-        this.createOverlay();
+        function openMenu() {
+            if (isAnimating) return;
+            isAnimating = true;
+            isOpen = true;
+            
+            // Dodaj klasy
+            menu.classList.add('is-open');
+            hamburger.classList.add('is-active');
+            hamburger.setAttribute('aria-expanded', 'true');
+            
+            // Zablokuj scroll
+            body.style.overflow = 'hidden';
+            body.style.position = 'fixed';
+            body.style.top = `-${window.scrollY}px`;
+            body.style.left = '0';
+            body.style.right = '0';
+            body.dataset.scrollY = window.scrollY;
+            
+            // Animacja zakończona
+            setTimeout(() => {
+                isAnimating = false;
+            }, 400);
+        }
         
-        // Event listeners
-        this.hamburger.addEventListener('click', () => this.toggle());
+        function closeMenu() {
+            if (isAnimating) return;
+            isAnimating = true;
+            isOpen = false;
+            
+            // Usuń klasy
+            menu.classList.remove('is-open');
+            hamburger.classList.remove('is-active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            
+            // Przywróć scroll
+            const scrollY = body.dataset.scrollY || 0;
+            body.style.overflow = '';
+            body.style.position = '';
+            body.style.top = '';
+            body.style.left = '';
+            body.style.right = '';
+            window.scrollTo(0, parseInt(scrollY));
+            
+            // Animacja zakończona
+            setTimeout(() => {
+                isAnimating = false;
+            }, 400);
+        }
         
-        // Zamknij menu po kliknięciu w link
-        const menuLinks = this.menu.querySelectorAll('.nav__link');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (this.isOpen) {
-                    this.close();
+        function toggleMenu(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        }
+
+        // ========================================
+        // EVENT LISTENERS
+        // ========================================
+        
+        // Kliknięcie hamburger - tylko click, bez touchend
+        hamburger.addEventListener('click', function(event) {
+            toggleMenu(event);
+        });
+        
+        // Kliknięcie w link
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                if (isOpen) {
+                    // Zamknij menu
+                    closeMenu();
                 }
+                // Link zadziała normalnie
             });
         });
         
-        // Zamknij na Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.isOpen) {
-                this.close();
+        // Kliknięcie poza menu (na overlay)
+        menu.addEventListener('click', function(event) {
+            // Jeśli kliknięto bezpośrednio w menu (nie w link)
+            if (event.target === menu && isOpen) {
+                closeMenu();
             }
         });
         
-        // Zamknij przy resize (jeśli przejście na desktop)
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && this.isOpen) {
-                this.close();
+        // Escape zamyka menu
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && isOpen) {
+                closeMenu();
             }
         });
-    }
-    
-    createOverlay() {
-        this.overlay = document.createElement('div');
-        this.overlay.className = 'nav-overlay';
-        this.overlay.setAttribute('aria-hidden', 'true');
-        document.body.appendChild(this.overlay);
         
-        // Zamknij menu po kliknięciu w overlay
-        this.overlay.addEventListener('click', () => this.close());
-    }
-    
-    toggle() {
-        if (this.isOpen) {
-            this.close();
-        } else {
-            this.open();
-        }
-    }
-    
-    open() {
-        this.isOpen = true;
-        
-        // Aktualizuj klasy
-        this.menu.classList.add('is-open');
-        this.hamburger.classList.add('is-active');
-        this.hamburger.setAttribute('aria-expanded', 'true');
-        this.overlay.classList.add('is-visible');
-        
-        // Zablokuj scroll body
-        document.body.style.overflow = 'hidden';
-        
-        // Animuj linki menu (staggered)
-        const links = this.menu.querySelectorAll('.nav__link');
-        links.forEach((link, index) => {
-            link.style.transitionDelay = `${150 + index * 50}ms`;
-            link.classList.add('is-visible');
-        });
-        
-        // Focus trap
-        this.trapFocus();
-    }
-    
-    close() {
-        this.isOpen = false;
-        
-        // Reset delays i ukryj linki
-        const links = this.menu.querySelectorAll('.nav__link');
-        links.forEach((link, index) => {
-            link.style.transitionDelay = `${(links.length - index - 1) * 30}ms`;
-            link.classList.remove('is-visible');
-        });
-        
-        // Poczekaj na animację linków, potem zamknij menu
-        setTimeout(() => {
-            this.menu.classList.remove('is-open');
-            this.hamburger.classList.remove('is-active');
-            this.hamburger.setAttribute('aria-expanded', 'false');
-            this.overlay.classList.remove('is-visible');
-            
-            // Odblokuj scroll
-            document.body.style.overflow = '';
-            
-            // Reset delays
-            links.forEach(link => {
-                link.style.transitionDelay = '';
-            });
-        }, 200);
-        
-        // Przywróć focus
-        this.hamburger.focus();
-    }
-    
-    trapFocus() {
-        // Znajdź focusable elementy w menu
-        this.focusableElements = this.menu.querySelectorAll(
-            'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
-        );
-        
-        if (this.focusableElements.length === 0) return;
-        
-        const firstElement = this.focusableElements[0];
-        const lastElement = this.focusableElements[this.focusableElements.length - 1];
-        
-        // Focus na pierwszym elemencie
-        setTimeout(() => firstElement.focus(), 100);
-        
-        // Trap handler
-        this.trapHandler = (e) => {
-            if (e.key !== 'Tab') return;
-            
-            if (e.shiftKey) {
-                // Shift + Tab
-                if (document.activeElement === firstElement) {
-                    e.preventDefault();
-                    lastElement.focus();
+        // Resize - zamknij menu jeśli przeszliśmy na desktop
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                if (window.innerWidth > 768 && isOpen) {
+                    closeMenu();
                 }
-            } else {
-                // Tab
-                if (document.activeElement === lastElement) {
-                    e.preventDefault();
-                    firstElement.focus();
-                }
-            }
-        };
-        
-        document.addEventListener('keydown', this.trapHandler);
-    }
-}
-
-
-// ========================================
-// ACTIVE LINK HIGHLIGHT
-// ========================================
-
-class ActiveLinkHighlight {
-    constructor() {
-        this.links = [];
-        this.init();
-    }
-    
-    init() {
-        this.links = document.querySelectorAll('.nav__link');
-        
-        // Pobierz aktualną ścieżkę
-        const currentPath = window.location.pathname;
-        const currentPage = currentPath.split('/').pop() || 'index.html';
-        
-        this.links.forEach(link => {
-            const href = link.getAttribute('href');
-            
-            // Sprawdź dopasowanie
-            if (href === currentPage || 
-                (currentPage === '' && href === 'index.html') ||
-                (currentPage === 'index.html' && href === 'index.html')) {
-                link.classList.add('nav__link--active');
-            } else {
-                link.classList.remove('nav__link--active');
-            }
+            }, 100);
         });
-    }
-}
 
-
-// ========================================
-// INICJALIZACJA
-// ========================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    const mobileNav = new MobileNavigation();
-    const activeLinks = new ActiveLinkHighlight();
-    
-    // Expose for debugging
-    window.mobileNav = mobileNav;
-
-});
-// ========================================
-// NAWIGACJA MOBILNA - POPRAWIONA
-// ========================================
-
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.nav__hamburger');
-    const menu = document.querySelector('.nav__menu');
-    const body = document.body;
-    const navLinks = document.querySelectorAll('.nav__link');
-    
-    if (!hamburger || !menu) return;
-    
-    // Toggle menu
-    hamburger.addEventListener('click', function() {
-        const isOpen = menu.classList.contains('is-open');
+        // ========================================
+        // RESET PRZY ŁADOWANIU STRONY
+        // ========================================
         
-        if (isOpen) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    });
-    
-    // Zamknij menu po kliknięciu w link
-    navLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-    
-    // Zamknij menu przy Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && menu.classList.contains('is-open')) {
-            closeMenu();
-        }
-    });
-    
-    // Zamknij menu przy resize (np. obrót telefonu)
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768 && menu.classList.contains('is-open')) {
-            closeMenu();
-        }
-    });
-    
-    function openMenu() {
-        menu.classList.add('is-open');
-        hamburger.classList.add('is-active');
-        hamburger.setAttribute('aria-expanded', 'true');
-        body.classList.add('menu-open');
-    }
-    
-    function closeMenu() {
+        // Upewnij się, że menu jest zamknięte przy starcie
         menu.classList.remove('is-open');
         hamburger.classList.remove('is-active');
         hamburger.setAttribute('aria-expanded', 'false');
-        body.classList.remove('menu-open');
+        body.style.overflow = '';
+        body.style.position = '';
+        
+        console.log('✅ Navigation initialized');
     }
-});
+
+})();
