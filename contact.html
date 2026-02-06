@@ -1,67 +1,165 @@
-<form 
-    class="contact-form" 
-    id="contactForm" 
-    action="https://formspree.io/f/meeljyrd" 
-    method="POST"
->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Skontaktuj się z nami">
     
-    <!-- Pole: Email -->
-    <div class="form-field">
-        <label for="email" class="form-field__label">Email</label>
-        <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            class="form-field__input"
-            placeholder="twoj@email.pl"
-            required
-        >
-    </div>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     
-    <!-- Pole: Temat -->
-    <div class="form-field">
-        <label for="subject" class="form-field__label">
-            Temat
-            <span class="form-field__optional">(opcjonalnie)</span>
-        </label>
-        <select id="subject" name="subject" class="form-field__select">
-            <option value="" selected>Wybierz temat</option>
-            <option value="rezerwacja">Rezerwacja warsztatu</option>
-            <option value="voucher">Voucher prezentowy</option>
-            <option value="firmowe">Wydarzenie firmowe</option>
-            <option value="wspolpraca">Współpraca</option>
-            <option value="inne">Inne pytanie</option>
-        </select>
-    </div>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/animations.css">
     
-    <!-- Pole: Wiadomość -->
-    <div class="form-field">
-        <label for="message" class="form-field__label">Wiadomość</label>
-        <textarea 
-            id="message" 
-            name="message" 
-            class="form-field__textarea"
-            placeholder="Napisz, w czym możemy pomóc..."
-            rows="6"
-            required
-        ></textarea>
-    </div>
-    
-    <!-- Ukryte pole - przekierowanie po wysłaniu -->
-    <input type="hidden" name="_next" value="https://filja17.github.io/War1/contact.html?sent=true">
-    
-    <!-- Ukryte pole - temat maila -->
-    <input type="hidden" name="_subject" value="Nowa wiadomość z formularza Atelier">
-    
-    <!-- Przycisk wysyłki -->
-    <div class="form-field form-field--submit">
-        <button type="submit" class="form-submit">
-            <span class="form-submit__text">Wyślij wiadomość</span>
-            <svg class="form-submit__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-        </button>
-    </div>
-    
-</form>
+    <title>Kontakt | Atelier</title>
+</head>
+<body>
 
+    <!-- NAWIGACJA -->
+    <nav class="nav" role="navigation">
+        <div class="nav__container">
+            <a href="index.html" class="nav__logo">Atelier</a>
+            
+            <ul class="nav__menu">
+                <li><a href="offer.html" class="nav__link">Oferta</a></li>
+                <li><a href="pricing.html" class="nav__link">Cennik</a></li>
+                <li><a href="about.html" class="nav__link">O nas</a></li>
+                <li><a href="contact.html" class="nav__link nav__link--active">Kontakt</a></li>
+            </ul>
+            
+            <button class="nav__hamburger" aria-label="Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="contact-page">
+        
+        <header class="contact-header">
+            <div class="contact-header__container">
+                <h1 class="contact-header__title">Porozmawiajmy</h1>
+                <p class="contact-header__subtitle">
+                    Napisz, a odezwiemy się w ciągu 24 godzin.
+                </p>
+            </div>
+        </header>
+
+        <section class="contact-content">
+            <div class="contact-content__container">
+                
+                <!-- FORMULARZ - BEZ JS, CZYSTY HTML -->
+                <div class="contact-form-wrapper">
+                    
+                    <!-- Komunikat sukcesu -->
+                    <div id="successMessage" class="contact-success" style="display: none;">
+                        <div class="contact-success__icon">✓</div>
+                        <h2 class="contact-success__title">Dziękujemy!</h2>
+                        <p class="contact-success__text">
+                            Twoja wiadomość została wysłana.<br>
+                            Odpowiemy najszybciej jak to możliwe.
+                        </p>
+                        <a href="contact.html" class="contact-success__button">Wyślij kolejną wiadomość</a>
+                    </div>
+                    
+                    <!-- Formularz -->
+                    <form 
+                        id="contactForm"
+                        class="contact-form" 
+                        action="https://formspree.io/f/meeljyrd" 
+                        method="POST"
+                    >
+                        
+                        <div class="form-field">
+                            <label for="email" class="form-field__label">Email *</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                class="form-field__input"
+                                placeholder="twoj@email.pl"
+                                required
+                            >
+                        </div>
+                        
+                        <div class="form-field">
+                            <label for="subject" class="form-field__label">Temat</label>
+                            <select id="subject" name="subject" class="form-field__select">
+                                <option value="">Wybierz temat</option>
+                                <option value="Rezerwacja warsztatu">Rezerwacja warsztatu</option>
+                                <option value="Voucher prezentowy">Voucher prezentowy</option>
+                                <option value="Wydarzenie firmowe">Wydarzenie firmowe</option>
+                                <option value="Współpraca">Współpraca</option>
+                                <option value="Inne">Inne pytanie</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label for="message" class="form-field__label">Wiadomość *</label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                class="form-field__textarea"
+                                placeholder="Napisz, w czym możemy pomóc..."
+                                rows="6"
+                                required
+                            ></textarea>
+                        </div>
+                        
+                        <!-- Formspree - przekierowanie po wysłaniu -->
+                        <input type="hidden" name="_next" value="https://filja17.github.io/War1/contact.html?sent=true">
+                        <input type="hidden" name="_subject" value="Nowa wiadomość z Atelier">
+                        
+                        <div class="form-field form-field--submit">
+                            <button type="submit" class="form-submit">
+                                Wyślij wiadomość
+                            </button>
+                        </div>
+                        
+                    </form>
+                </div>
+                
+                <!-- Dane kontaktowe -->
+                <aside class="contact-info">
+                    <div class="contact-info__item">
+                        <span class="contact-info__label">Email</span>
+                        <a href="mailto:filiptjaworski@gmail.com" class="contact-info__value">
+                            filiptjaworski@gmail.com
+                        </a>
+                    </div>
+                    <div class="contact-info__item">
+                        <span class="contact-info__label">Instagram</span>
+                        <a href="https://www.instagram.com/jak_hcesz/" target="_blank" class="contact-info__value">
+                            @jak_hcesz
+                        </a>
+                    </div>
+                </aside>
+                
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <p class="footer__copyright">© 2024 Atelier</p>
+            <a href="mailto:filiptjaworski@gmail.com" class="footer__email">filiptjaworski@gmail.com</a>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    
+    <!-- Prosty skrypt do pokazania sukcesu -->
+    <script>
+        // Sprawdź czy wracamy po wysłaniu
+        if (window.location.search.includes('sent=true')) {
+            document.getElementById('contactForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
