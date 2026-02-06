@@ -207,4 +207,61 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Expose for debugging
     window.mobileNav = mobileNav;
+
+});
+// ========================================
+// NAWIGACJA MOBILNA - POPRAWIONA
+// ========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.nav__hamburger');
+    const menu = document.querySelector('.nav__menu');
+    const body = document.body;
+    const navLinks = document.querySelectorAll('.nav__link');
+    
+    if (!hamburger || !menu) return;
+    
+    // Toggle menu
+    hamburger.addEventListener('click', function() {
+        const isOpen = menu.classList.contains('is-open');
+        
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+    
+    // Zamknij menu po kliknięciu w link
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+    
+    // Zamknij menu przy Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+            closeMenu();
+        }
+    });
+    
+    // Zamknij menu przy resize (np. obrót telefonu)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && menu.classList.contains('is-open')) {
+            closeMenu();
+        }
+    });
+    
+    function openMenu() {
+        menu.classList.add('is-open');
+        hamburger.classList.add('is-active');
+        hamburger.setAttribute('aria-expanded', 'true');
+        body.classList.add('menu-open');
+    }
+    
+    function closeMenu() {
+        menu.classList.remove('is-open');
+        hamburger.classList.remove('is-active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        body.classList.remove('menu-open');
+    }
 });
