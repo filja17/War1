@@ -641,17 +641,4 @@ img {
     transform: translateY(0);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
-/* TYMCZASOWY TEST - USUŃ PO SPRAWDZENIU! */
-@media (max-width: 768px) {
-    .nav__menu {
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-        background: red !important;
-    }
-    
-    .nav__menu li {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-}
+
