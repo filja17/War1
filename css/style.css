@@ -554,4 +554,73 @@ img {
         font-size: 1.5rem;
     }
 }
+/* ========================================
+   FIX: Menu mobilne - pełna wysokość
+   ======================================== */
+
+/* Menu mobilne otwarte */
+.nav__menu.is-open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height - lepsze na mobile */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xl, 2rem);
+    
+    background: var(--color-bg, #FAFAF8);
+    z-index: 999;
+    
+    /* Animacja wejścia */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav__menu.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Zapobiega scrollowaniu body gdy menu otwarte */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/* Linki w menu mobilnym */
+.nav__menu.is-open .nav__link {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    padding: 1rem;
+}
+
+/* Hamburger - animacja do X */
+.nav__hamburger.is-active span:first-child {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav__hamburger.is-active span:last-child {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Safe area dla iPhone z notchem */
+@supports (padding-top: env(safe-area-inset-top)) {
+    .nav {
+        padding-top: calc(var(--space-md, 1rem) + env(safe-area-inset-top));
+    }
+    
+    .nav__menu.is-open {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
 
