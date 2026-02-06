@@ -740,4 +740,30 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Floating words blur effect
     const floatingWords = new FloatingWordsBlur();
+
+});
+// ========================================
+// FIX: Problem z przyciskiem "Wróć"
+// ========================================
+
+// Usuń event listenery przy nawigacji wstecz
+window.addEventListener('pageshow', function(event) {
+    // Jeśli strona jest ładowana z cache (przycisk wstecz)
+    if (event.persisted) {
+        window.location.reload();
+    }
+});
+
+// Alternatywnie - wyłącz cache dla strony
+window.addEventListener('beforeunload', function() {
+    // Czyści stan przed opuszczeniem strony
+});
+
+// Reset animacji przy powrocie
+document.addEventListener('DOMContentLoaded', function() {
+    // Usuń klasy animacji żeby mogły się odpalić ponownie
+    const revealElements = document.querySelectorAll('[data-reveal]');
+    revealElements.forEach(el => {
+        el.classList.remove('is-revealed');
+    });
 });
