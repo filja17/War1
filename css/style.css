@@ -1,42 +1,9 @@
-:root {
-  --color-bg: #FAFAFA;
-  --color-text: #1A1A1A;
-  --color-accent: #2C2C2C;
-  --color-overlay: rgba(0,0,0,0.3);
-
-  --font-heading: 'Cormorant Garamond', serif;
-  --font-body: 'DM Sans', sans-serif;
-
-  --section-padding: clamp(2rem, 5vw, 6rem);
-}
 /* ========================================
-   RESET & BASE
+   STYLE.CSS - CZYSTA WERSJA
    ======================================== */
 
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 16px;
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 300;
-    line-height: 1.6;
-    color: var(--color-text);
-    background-color: var(--color-bg);
-    overflow-x: hidden;
-}
-
 /* ========================================
-   CSS CUSTOM PROPERTIES (zmienne)
+   CSS VARIABLES
    ======================================== */
 
 :root {
@@ -52,7 +19,7 @@ body {
     --font-heading: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'DM Sans', -apple-system, sans-serif;
     
-    /* Rozmiary czcionek (fluid) */
+    /* Rozmiary czcionek */
     --text-xs: clamp(0.75rem, 1vw, 0.875rem);
     --text-sm: clamp(0.875rem, 1.2vw, 1rem);
     --text-base: clamp(1rem, 1.5vw, 1.125rem);
@@ -76,16 +43,49 @@ body {
     --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slower: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     
-    /* Z-index layers */
+    /* Z-index */
     --z-base: 1;
     --z-overlay: 10;
     --z-nav: 100;
     --z-modal: 1000;
 }
 
+/* ========================================
+   RESET & BASE
+   ======================================== */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    overflow-x: hidden;
+}
+
+/* Body when menu is open */
+body.menu-is-open {
+    overflow: hidden !important;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
 
 /* ========================================
-   TYPOGRAFIA
+   TYPOGRAPHY
    ======================================== */
 
 h1, h2, h3, h4, h5, h6 {
@@ -111,9 +111,8 @@ img {
     height: auto;
 }
 
-
 /* ========================================
-   NAWIGACJA
+   NAWIGACJA - BASE (Desktop)
    ======================================== */
 
 .nav {
@@ -123,11 +122,15 @@ img {
     right: 0;
     z-index: var(--z-nav);
     padding: var(--space-md) var(--space-lg);
-    
-    /* Efekt "szkła" – opcjonalny */
     background: rgba(250, 250, 248, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav--scrolled {
+    background: rgba(250, 250, 248, 0.95);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .nav__container {
@@ -145,16 +148,20 @@ img {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     transition: opacity var(--transition-fast);
+    z-index: 1002;
 }
 
 .nav__logo:hover {
     opacity: 0.6;
 }
 
+/* Menu - Desktop */
 .nav__menu {
     display: flex;
     gap: var(--space-lg);
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav__link {
@@ -166,7 +173,6 @@ img {
     padding: 0.25em 0;
 }
 
-/* Podkreślenie animowane */
 .nav__link::after {
     content: '';
     position: absolute;
@@ -187,31 +193,175 @@ img {
     opacity: 1;
 }
 
-/* Hamburger – widoczny tylko na mobile */
+/* Hamburger - ukryty na desktop */
 .nav__hamburger {
     display: none;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 6px;
-    width: 32px;
-    height: 32px;
-    background: none;
+    width: 48px;
+    height: 48px;
+    background: transparent;
     border: none;
     cursor: pointer;
-    padding: 4px;
+    padding: 12px;
+    z-index: 1002;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .nav__hamburger span {
     display: block;
-    width: 100%;
-    height: 1px;
+    width: 24px;
+    height: 2px;
     background: var(--color-text);
-    transition: transform var(--transition-base), opacity var(--transition-base);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+    transform-origin: center;
 }
 
+.nav__hamburger.is-active span:first-child {
+    transform: rotate(45deg) translate(4px, 4px);
+}
+
+.nav__hamburger.is-active span:last-child {
+    transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* Overlay z blur */
+.nav__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 998;
+    pointer-events: none;
+}
+
+.nav__overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
 
 /* ========================================
-   HERO / INTRO
+   NAWIGACJA - MOBILE (max 768px)
+   ======================================== */
+
+@media (max-width: 768px) {
+    
+    /* Pokaż hamburger */
+    .nav__hamburger {
+        display: flex;
+    }
+    
+    /* Menu mobilne - ZAWSZE ISTNIEJE ale ukryte */
+    .nav__menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        
+        background-color: var(--color-bg);
+        
+        /* UKRYTE - ale nie display:none! */
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        
+        z-index: 1000;
+        padding: 100px 20px;
+        
+        list-style: none;
+        margin: 0;
+    }
+    
+    /* Menu OTWARTE */
+    .nav__menu.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+    
+    /* Elementy listy */
+    .nav__menu li {
+        list-style: none;
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    .nav__menu.is-open li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Opóźnienia */
+    .nav__menu.is-open li:nth-child(1) { transition-delay: 0.05s; }
+    .nav__menu.is-open li:nth-child(2) { transition-delay: 0.1s; }
+    .nav__menu.is-open li:nth-child(3) { transition-delay: 0.15s; }
+    .nav__menu.is-open li:nth-child(4) { transition-delay: 0.2s; }
+    
+    /* Linki w menu mobilnym */
+    .nav__menu .nav__link {
+        display: block;
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 8vw, 3rem);
+        font-weight: 300;
+        padding: 0.75rem 2rem;
+        color: var(--color-text);
+    }
+    
+    .nav__menu .nav__link::after {
+        display: none;
+    }
+    
+    .nav__menu .nav__link--active {
+        opacity: 0.5;
+    }
+}
+
+/* Safe area iPhone */
+@supports (padding-top: env(safe-area-inset-top)) {
+    .nav {
+        padding-top: max(var(--space-md), env(safe-area-inset-top));
+    }
+    
+    @media (max-width: 768px) {
+        .nav__menu {
+            padding-top: max(120px, calc(100px + env(safe-area-inset-top)));
+            padding-bottom: max(60px, env(safe-area-inset-bottom));
+        }
+    }
+}
+
+/* ========================================
+   HERO
    ======================================== */
 
 .hero {
@@ -242,7 +392,6 @@ img {
     font-weight: 300;
 }
 
-/* Scroll indicator */
 .hero__scroll-indicator {
     position: absolute;
     bottom: var(--space-xl);
@@ -262,28 +411,17 @@ img {
 .hero__scroll-line {
     width: 1px;
     height: 60px;
-    background: linear-gradient(
-        to bottom,
-        var(--color-text-light) 0%,
-        transparent 100%
-    );
+    background: linear-gradient(to bottom, var(--color-text-light) 0%, transparent 100%);
     animation: scrollPulse 2s ease-in-out infinite;
 }
 
 @keyframes scrollPulse {
-    0%, 100% {
-        opacity: 0.3;
-        transform: scaleY(0.8);
-    }
-    50% {
-        opacity: 1;
-        transform: scaleY(1);
-    }
+    0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
+    50% { opacity: 1; transform: scaleY(1); }
 }
 
-
 /* ========================================
-   OFERTA – SIATKA WARSZTATÓW
+   WORKSHOPS GRID
    ======================================== */
 
 .workshops {
@@ -292,22 +430,19 @@ img {
     gap: 0;
 }
 
-/* Opcja: 2-kolumnowy layout na dużych ekranach */
 @media (min-width: 1024px) {
     .workshops {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    /* Pierwszy i ostatni element – pełna szerokość */
     .workshop-card:first-child,
     .workshop-card:last-child {
         grid-column: 1 / -1;
     }
 }
 
-
 /* ========================================
-   WORKSHOP CARD – pojedynczy warsztat
+   WORKSHOP CARD
    ======================================== */
 
 .workshop-card {
@@ -323,7 +458,6 @@ img {
     max-height: 900px;
 }
 
-/* Kontener obrazu */
 .workshop-card__image-wrapper {
     position: absolute;
     inset: 0;
@@ -337,7 +471,6 @@ img {
     transition: transform var(--transition-slower);
 }
 
-/* Overlay */
 .workshop-card__overlay {
     position: absolute;
     inset: 0;
@@ -345,7 +478,6 @@ img {
     transition: background var(--transition-base);
 }
 
-/* Treść – wycentrowana */
 .workshop-card__content {
     position: absolute;
     inset: 0;
@@ -356,13 +488,9 @@ img {
     text-align: center;
     padding: var(--space-lg);
     z-index: var(--z-overlay);
-    
-    /* Tekst domyślnie ukryty */
     opacity: 0;
     transform: translateY(20px);
-    transition: 
-        opacity var(--transition-base),
-        transform var(--transition-base);
+    transition: opacity var(--transition-base), transform var(--transition-base);
 }
 
 .workshop-card__title {
@@ -380,11 +508,7 @@ img {
     letter-spacing: 0.3em;
 }
 
-
-/* ========================================
-   WORKSHOP CARD – HOVER STATES
-   ======================================== */
-
+/* Hover */
 .workshop-card__link:hover .workshop-card__image {
     transform: scale(1.05);
 }
@@ -398,23 +522,46 @@ img {
     transform: translateY(0);
 }
 
-/* Focus state dla accessibility */
-.workshop-card__link:focus {
-    outline: none;
-}
-
 .workshop-card__link:focus .workshop-card__content {
     opacity: 1;
     transform: translateY(0);
 }
 
-.workshop-card__link:focus .workshop-card__overlay {
-    background: var(--color-overlay-hover);
+/* Mobile - zawsze widoczna treść */
+@media (max-width: 768px) {
+    .workshop-card__link {
+        height: 70vh;
+        min-height: 400px;
+        max-height: 600px;
+    }
+    
+    .workshop-card__content {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .workshop-card__title {
+        font-size: var(--text-2xl);
+    }
 }
 
+@media (max-width: 480px) {
+    .workshop-card__link {
+        height: 60vh;
+        min-height: 350px;
+    }
+    
+    .workshop-card__title {
+        font-size: var(--text-xl);
+    }
+    
+    .hero__title {
+        font-size: clamp(2rem, 10vw, 3rem);
+    }
+}
 
 /* ========================================
-   STOPKA
+   FOOTER
    ======================================== */
 
 .footer {
@@ -445,56 +592,7 @@ img {
     opacity: 1;
 }
 
-
-/* ========================================
-   RESPONSYWNOŚĆ
-   ======================================== */
-
 @media (max-width: 768px) {
-    
-    /* Nawigacja – hamburger */
-    .nav__menu {
-        display: none;
-    }
-    
-    .nav__hamburger {
-        display: flex;
-    }
-    
-    /* Menu mobilne – do rozbudowy w JS */
-    .nav__menu.is-open {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        inset: 0;
-        background: var(--color-bg);
-        justify-content: center;
-        align-items: center;
-        gap: var(--space-xl);
-    }
-    
-    .nav__menu.is-open .nav__link {
-        font-size: var(--text-xl);
-    }
-    
-    /* Workshop card – mniejsza wysokość */
-    .workshop-card__link {
-        height: 70vh;
-        min-height: 400px;
-        max-height: 600px;
-    }
-    
-    /* Na mobile tekst widoczny zawsze */
-    .workshop-card__content {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .workshop-card__title {
-        font-size: var(--text-2xl);
-    }
-    
-    /* Footer stack */
     .footer__container {
         flex-direction: column;
         gap: var(--space-sm);
@@ -502,35 +600,10 @@ img {
     }
 }
 
-@media (max-width: 480px) {
-    .hero__title {
-        font-size: clamp(2rem, 10vw, 3rem);
-    }
-    
-    .workshop-card__link {
-        height: 60vh;
-        min-height: 350px;
-    }
-@media (max-width: 480px) {
-    .hero__title {
-        font-size: clamp(2rem, 10vw, 3rem);
-    }
-    
-    .workshop-card__link {
-        height: 60vh;
-        min-height: 350px;
-    }
-    
-    .workshop-card__title {
-        font-size: var(--text-xl);
-    }
-}
-
 /* ========================================
-   DODATKOWE ULEPSZENIA MOBILE
+   UTILITIES
    ======================================== */
 
-/* Przyciski przyjazne dla dotyku - min 44x44px */
 .nav__link,
 .nav__hamburger,
 .footer__email {
@@ -539,7 +612,6 @@ img {
     align-items: center;
 }
 
-/* Lepsze odstępy na bardzo małych ekranach */
 @media (max-width: 360px) {
     :root {
         --space-lg: 1rem;
@@ -554,501 +626,18 @@ img {
         font-size: 1.5rem;
     }
 }
+
 /* ========================================
-   FIX: Menu mobilne - pełna wysokość
+   REVEAL ANIMATIONS
    ======================================== */
 
-/* Menu mobilne otwarte */
-.nav__menu.is-open {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100vh;
-    height: 100dvh; /* Dynamic viewport height - lepsze na mobile */
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-xl, 2rem);
-    
-    background: var(--color-bg, #FAFAF8);
-    z-index: 999;
-    
-    /* Animacja wejścia */
+.reveal-hidden {
     opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transform: translateY(30px);
 }
 
-.nav__menu.is-open {
+.reveal-visible {
     opacity: 1;
-    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
-/* Zapobiega scrollowaniu body gdy menu otwarte */
-body.menu-open {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-}
-
-/* Linki w menu mobilnym */
-.nav__menu.is-open .nav__link {
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    padding: 1rem;
-}
-
-/* Hamburger - animacja do X */
-.nav__hamburger.is-active span:first-child {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.nav__hamburger.is-active span:last-child {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Safe area dla iPhone z notchem */
-@supports (padding-top: env(safe-area-inset-top)) {
-    .nav {
-        padding-top: calc(var(--space-md, 1rem) + env(safe-area-inset-top));
-    }
-    
-    .nav__menu.is-open {
-        padding-top: env(safe-area-inset-top);
-        padding-bottom: env(safe-area-inset-bottom);
-    }
-}
-/* ========================================
-   NAWIGACJA MOBILNA - KOMPLETNY FIX
-   ======================================== */
-
-/* Hamburger */
-.nav__hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    width: 44px;
-    height: 44px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1001;
-    position: relative;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-}
-
-.nav__hamburger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--color-text, #1A1A1A);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    pointer-events: none;
-}
-
-/* Hamburger → X */
-.nav__hamburger.is-active span:first-child {
-    transform: rotate(45deg) translate(6px, 6px);
-}
-
-.nav__hamburger.is-active span:last-child {
-    transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-    
-    .nav__hamburger {
-        display: flex;
-    }
-    
-    .nav__menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100vw;
-        height: 100vh;
-        height: 100dvh;
-        
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        
-        background-color: var(--color-bg, #FAFAF8);
-        
-        /* UKRYTE */
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-20px);
-        
-        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-        
-        z-index: 1000;
-        padding: 100px 20px 60px;
-    }
-    
-    /* Menu OTWARTE */
-    .nav__menu.is-open {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-    
-    /* Linki */
-    .nav__menu li {
-        list-style: none;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    
-    .nav__menu.is-open li {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .nav__menu.is-open li:nth-child(1) { transition-delay: 0.1s; }
-    .nav__menu.is-open li:nth-child(2) { transition-delay: 0.15s; }
-    .nav__menu.is-open li:nth-child(3) { transition-delay: 0.2s; }
-    .nav__menu.is-open li:nth-child(4) { transition-delay: 0.25s; }
-    
-    .nav__menu .nav__link {
-        font-size: clamp(1.5rem, 6vw, 2.5rem);
-        padding: 1rem 2rem;
-        display: block;
-    }
-}
-
-/* Safe area dla iPhone */
-@supports (padding-top: env(safe-area-inset-top)) {
-    @media (max-width: 768px) {
-        .nav__menu {
-            padding-top: max(100px, calc(80px + env(safe-area-inset-top)));
-            padding-bottom: max(60px, calc(40px + env(safe-area-inset-bottom)));
-        }
-    }
-}
-/* ========================================
-   NAWIGACJA MOBILNA - PEŁNA WERSJA Z BLUR
-   ======================================== */
-
-/* Overlay z efektem blur */
-.nav__overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-    z-index: 998;
-    pointer-events: none;
-}
-
-.nav__overlay.is-visible {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-/* Hamburger button */
-.nav__hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    width: 48px;
-    height: 48px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 12px;
-    z-index: 1001;
-    position: relative;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-}
-
-.nav__hamburger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--color-text, #1A1A1A);
-    transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
-    pointer-events: none;
-    transform-origin: center;
-}
-
-/* Hamburger → X animation */
-.nav__hamburger.is-active span {
-    background: var(--color-text, #1A1A1A);
-}
-
-.nav__hamburger.is-active span:first-child {
-    transform: rotate(45deg) translate(4px, 4px);
-}
-
-.nav__hamburger.is-active span:last-child {
-    transform: rotate(-45deg) translate(4px, -4px);
-}
-
-/* Body when menu is open */
-body.menu-is-open {
-    overflow: hidden !important;
-}
-
-/* ========================================
-   MOBILE STYLES (max 768px)
-   ======================================== */
-
-@media (max-width: 768px) {
-    
-    /* Pokaż hamburger */
-    .nav__hamburger {
-        display: flex;
-    }
-    
-    /* Menu mobilne */
-    .nav__menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100vw;
-        height: 100vh;
-        height: 100dvh; /* Dynamic viewport height */
-        
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 0;
-        
-        background-color: var(--color-bg, #FAFAF8);
-        
-        /* Ukryte domyślnie */
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-100%);
-        
-        transition: 
-            opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-            visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-            transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        
-        z-index: 999;
-        padding: 120px 40px 80px;
-        
-        list-style: none;
-        margin: 0;
-    }
-    
-    /* Menu otwarte */
-    .nav__menu.is-open {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-    
-    /* Elementy listy */
-    .nav__menu li {
-        list-style: none;
-        width: 100%;
-        text-align: center;
-        
-        /* Animacja wejścia */
-        opacity: 0;
-        transform: translateY(30px);
-        transition: 
-            opacity 0.4s ease,
-            transform 0.4s ease;
-    }
-    
-    .nav__menu li.is-visible,
-    .nav__menu.is-open li {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    /* Opóźnienia dla każdego elementu */
-    .nav__menu.is-open li:nth-child(1) { transition-delay: 0.1s; }
-    .nav__menu.is-open li:nth-child(2) { transition-delay: 0.15s; }
-    .nav__menu.is-open li:nth-child(3) { transition-delay: 0.2s; }
-    .nav__menu.is-open li:nth-child(4) { transition-delay: 0.25s; }
-    .nav__menu.is-open li:nth-child(5) { transition-delay: 0.3s; }
-    
-    /* Linki w menu */
-    .nav__menu .nav__link {
-        display: block;
-        font-family: var(--font-heading, 'Cormorant Garamond', serif);
-        font-size: clamp(2rem, 8vw, 3.5rem);
-        font-weight: 300;
-        letter-spacing: 0.02em;
-        padding: 1rem 2rem;
-        color: var(--color-text, #1A1A1A);
-        text-decoration: none;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    
-    .nav__menu .nav__link:hover,
-    .nav__menu .nav__link:focus {
-        opacity: 0.6;
-    }
-    
-    .nav__menu .nav__link:active {
-        transform: scale(0.98);
-    }
-    
-    /* Aktywny link */
-    .nav__menu .nav__link--active {
-        opacity: 0.5;
-    }
-    
-    /* Usuń podkreślenie na mobile */
-    .nav__menu .nav__link::after {
-        display: none;
-    }
-}
-
-/* ========================================
-   SAFE AREA - iPhone z notchem
-   ======================================== */
-
-@supports (padding-top: env(safe-area-inset-top)) {
-    .nav {
-        padding-top: max(var(--space-md, 1rem), env(safe-area-inset-top));
-    }
-    
-    @media (max-width: 768px) {
-        .nav__menu {
-            padding-top: max(120px, calc(100px + env(safe-area-inset-top)));
-            padding-bottom: max(80px, calc(60px + env(safe-area-inset-bottom)));
-        }
-    }
-}
-
-/* ========================================
-   NAVBAR STATES
-   ======================================== */
-
-.nav {
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.nav--scrolled {
-    background: rgba(250, 250, 248, 0.95);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
-}
-
-.nav--hidden {
-    transform: translateY(-100%);
-}
-
-/* ========================================
-   TABLET STYLES (768px - 1024px)
-   ======================================== */
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    .nav__menu {
-        gap: var(--space-md, 1.5rem);
-    }
-    
-    .nav__link {
-        font-size: var(--text-sm, 0.875rem);
-    }
-}
-  /* ========================================
-   EMERGENCY FIX - MENU MOBILE
-   ======================================== */
-
-@media (max-width: 768px) {
-    
-    /* Reset menu */
-    .nav__menu {
-        /* Wymuś widoczność struktury */
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-        
-        /* Pozycjonowanie */
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        
-        /* Tło */
-        background-color: #FAFAF8 !important;
-        
-        /* Ukryte domyślnie */
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        
-        /* Animacja */
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-        
-        /* Z-index */
-        z-index: 999 !important;
-        
-        /* Padding */
-        padding: 100px 20px !important;
-        gap: 20px !important;
-        
-        /* Lista */
-        list-style: none !important;
-        margin: 0 !important;
-    }
-    
-    /* Menu OTWARTE */
-    .nav__menu.is-open {
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-    }
-    
-    /* Elementy listy */
-    .nav__menu li {
-        list-style: none !important;
-        display: block !important;
-        width: auto !important;
-        opacity: 1 !important;
-        transform: none !important;
-    }
-    
-    /* Linki */
-    .nav__menu .nav__link {
-        display: block !important;
-        font-size: 2rem !important;
-        padding: 15px 30px !important;
-        color: #1A1A1A !important;
-        text-decoration: none !important;
-        text-align: center !important;
-    }
-}
-
-
