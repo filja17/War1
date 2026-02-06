@@ -1,0 +1,140 @@
+/* ========================================
+   OFFER.CSS
+   Style dla strony oferty
+   ======================================== */
+
+/* ========================================
+   OFFER PAGE LAYOUT
+   ======================================== */
+
+.offer-page {
+    min-height: 100vh;
+    padding-top: 80px; /* miejsce na fixed nav */
+}
+
+/* ========================================
+   OFFER HEADER (mały, opcjonalny)
+   ======================================== */
+
+.offer-header {
+    padding: var(--space-lg) var(--space-lg) 0;
+    text-align: center;
+}
+
+.offer-header__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.offer-header__subtitle {
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+/* ========================================
+   WORKSHOPS GRID - 8 slotów
+   ======================================== */
+
+.workshops-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: var(--space-lg);
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* 2 kolumny na tablet */
+@media (min-width: 768px) {
+    .workshops-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 4 kolumny na desktop */
+@media (min-width: 1200px) {
+    .workshops-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ========================================
+   WORKSHOP CARD - dostosowane do siatki
+   ======================================== */
+
+.workshops-grid .workshop-card__link {
+    height: 50vh;
+    min-height: 300px;
+    max-height: 450px;
+}
+
+@media (min-width: 768px) {
+    .workshops-grid .workshop-card__link {
+        height: 45vh;
+        min-height: 280px;
+        max-height: 400px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .workshops-grid .workshop-card__link {
+        height: 40vh;
+        min-height: 250px;
+        max-height: 350px;
+    }
+}
+
+/* Mniejsze tytuły w siatce */
+.workshops-grid .workshop-card__title {
+    font-size: var(--text-xl);
+}
+
+@media (min-width: 1200px) {
+    .workshops-grid .workshop-card__title {
+        font-size: var(--text-lg);
+    }
+}
+
+/* ========================================
+   EMPTY SLOTS - placeholdery
+   ======================================== */
+
+.workshop-card--empty {
+    opacity: 0.6;
+}
+
+.workshop-card__link--placeholder {
+    cursor: default;
+    pointer-events: none;
+}
+
+.workshop-card__placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+}
+
+.workshop-card__placeholder span {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+.workshop-card--empty .workshop-card__content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.workshop-card--empty .workshop-card__title {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.workshop-card--empty .workshop-card__overlay {
+    background: rgba(0, 0, 0, 0.4);
+}
