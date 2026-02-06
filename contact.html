@@ -253,7 +253,29 @@
     <script src="js/main.js" defer></script>
     <script src="js/navigation.js" defer></script>
     <script src="js/contact.js" defer></script>
-
+<script>
+// TYMCZASOWY TEST - USUŃ PO SPRAWDZENIU!
+document.addEventListener('DOMContentLoaded', function() {
+    alert('Test 1: JS działa!');
+    
+    var menu = document.querySelector('.nav__menu');
+    if (menu) {
+        alert('Test 2: Menu znalezione! Class: ' + menu.className);
+    } else {
+        alert('Test 2: BŁĄD - Menu NIE istnieje!');
+    }
+    
+    var hamburger = document.querySelector('.nav__hamburger');
+    if (hamburger) {
+        hamburger.onclick = function() {
+            alert('Test 3: Hamburger kliknięty!');
+            menu.classList.toggle('is-open');
+            alert('Test 4: Klasy menu: ' + menu.className);
+        };
+    }
+});
+</script>
 </body>
 
 </html>
+
