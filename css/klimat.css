@@ -1,0 +1,202 @@
+/* ========================================
+   KLIMAT.CSS
+   Sekcja ze zdjęciami blur i napisami
+   ======================================== */
+
+/* ========================================
+   KLIMAT SECTION - MAIN CONTAINER
+   ======================================== */
+
+.klimat-section {
+    position: relative;
+    height: 400vh; /* Wysokość = ilość słów * 100vh (mniej więcej) */
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ========================================
+   TYTUŁ SEKCJI
+   ======================================== */
+
+.klimat-title {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 15vw, 10rem);
+    font-weight: 300;
+    color: #fff;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 20;
+    transition: opacity 0.8s ease;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.klimat-section.is-active .klimat-title {
+    opacity: 0.15;
+}
+
+/* ========================================
+   BACKGROUNDS - ZDJĘCIA
+   ======================================== */
+
+.klimat-backgrounds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.klimat-section.is-active .klimat-backgrounds {
+    opacity: 1;
+}
+
+.klimat-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease, filter 1s ease;
+}
+
+.klimat-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Aktywne zdjęcie */
+.klimat-bg.is-active {
+    opacity: 1;
+    filter: blur(0px);
+}
+
+/* Poprzednie/następne zdjęcie - blur */
+.klimat-bg.is-blur {
+    opacity: 0.6;
+    filter: blur(20px);
+}
+
+/* ========================================
+   OVERLAY
+   ======================================== */
+
+.klimat-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.klimat-section.is-active .klimat-overlay {
+    opacity: 1;
+}
+
+/* ========================================
+   CONTENT - NAPISY
+   ======================================== */
+
+.klimat-content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+}
+
+/* ========================================
+   KLIMAT WORD - Pojedynczy napis
+   ======================================== */
+
+.klimat-word {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.klimat-word__text {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 10vw, 6rem);
+    font-weight: 300;
+    font-style: italic;
+    color: #fff;
+    text-align: center;
+    padding: 0 var(--space-lg);
+    
+    /* Początkowy stan - niewidoczny */
+    opacity: 0;
+    transform: translateY(50px);
+    filter: blur(10px);
+    
+    transition: 
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Słowo widoczne */
+.klimat-word.is-visible .klimat-word__text {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+/* Słowo wychodzące (w górę) */
+.klimat-word.is-exiting .klimat-word__text {
+    opacity: 0;
+    transform: translateY(-50px);
+    filter: blur(10px);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .klimat-section {
+        height: 350vh;
+    }
+    
+    .klimat-word__text {
+        font-size: clamp(1.5rem, 12vw, 4rem);
+    }
+    
+    .klimat-title {
+        font-size: clamp(2rem, 20vw, 6rem);
+    }
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .klimat-word__text {
+        transition: opacity 0.3s ease;
+        transform: none;
+        filter: none;
+    }
+    
+    .klimat-bg {
+        transition: opacity 0.3s ease;
+        filter: none !important;
+    }
+}
