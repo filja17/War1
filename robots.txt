@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://filja17.github.io/War1/sitemap.xml
