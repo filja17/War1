@@ -1,61 +1,43 @@
 /* ========================================
    KLIMAT.CSS
    Sekcja ze zdjęciami blur i napisami
+   NAPISY WYCENTROWANE I LEWITUJĄCE
    ======================================== */
 
 /* ========================================
-   KLIMAT SECTION - MAIN CONTAINER
+   KLIMAT SECTION
    ======================================== */
 
 .klimat-section {
     position: relative;
-    height: 400vh; /* Wysokość = ilość słów * 100vh (mniej więcej) */
+    min-height: 500vh; /* Długa sekcja do scrollowania */
     width: 100%;
+}
+
+/* ========================================
+   STICKY CONTAINER - przyklejone tło i napisy
+   ======================================== */
+
+.klimat-sticky {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     overflow: hidden;
 }
 
 /* ========================================
-   TYTUŁ SEKCJI
-   ======================================== */
-
-.klimat-title {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: var(--font-heading);
-    font-size: clamp(3rem, 15vw, 10rem);
-    font-weight: 300;
-    color: #fff;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 20;
-    transition: opacity 0.8s ease;
-    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-}
-
-.klimat-section.is-active .klimat-title {
-    opacity: 0.15;
-}
-
-/* ========================================
-   BACKGROUNDS - ZDJĘCIA
+   TŁO ZE ZDJĘCIAMI
    ======================================== */
 
 .klimat-backgrounds {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: 1;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.klimat-section.is-active .klimat-backgrounds {
-    opacity: 1;
 }
 
 .klimat-bg {
@@ -65,86 +47,95 @@
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 1s ease, filter 1s ease;
+    transition: opacity 1.2s ease;
 }
 
 .klimat-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: blur(0px);
+    transform: scale(1.1);
+    transition: filter 1.2s ease;
 }
 
 /* Aktywne zdjęcie */
 .klimat-bg.is-active {
     opacity: 1;
+}
+
+.klimat-bg.is-active img {
     filter: blur(0px);
 }
 
-/* Poprzednie/następne zdjęcie - blur */
-.klimat-bg.is-blur {
-    opacity: 0.6;
-    filter: blur(20px);
-}
-
-/* ========================================
-   OVERLAY
-   ======================================== */
-
-.klimat-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 5;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.klimat-section.is-active .klimat-overlay {
+/* Poprzednie zdjęcie - blur out */
+.klimat-bg.is-previous {
     opacity: 1;
 }
 
-/* ========================================
-   CONTENT - NAPISY
-   ======================================== */
-
-.klimat-content {
-    position: relative;
-    z-index: 10;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    pointer-events: none;
+.klimat-bg.is-previous img {
+    filter: blur(30px);
 }
 
 /* ========================================
-   KLIMAT WORD - Pojedynczy napis
+   OVERLAY - przyciemnienie
    ======================================== */
 
-.klimat-word {
-    height: 100vh;
+.klimat-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 5;
+}
+
+/* ========================================
+   TYTUŁ SEKCJI
+   ======================================== */
+
+.klimat-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 20vw, 12rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.08);
+    z-index: 6;
+    pointer-events: none;
+    white-space: nowrap;
+    letter-spacing: 0.1em;
+}
+
+/* ========================================
+   NAPISY - WYCENTROWANE I LEWITUJĄCE
+   ======================================== */
+
+.klimat-words {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    pointer-events: none;
 }
 
-.klimat-word__text {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 10vw, 6rem);
-    font-weight: 300;
-    font-style: italic;
-    color: #fff;
+.klimat-word {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    padding: 0 var(--space-lg);
     
-    /* Początkowy stan - niewidoczny */
+    /* Niewidoczny domyślnie */
     opacity: 0;
-    transform: translateY(50px);
-    filter: blur(10px);
     
     transition: 
         opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
@@ -152,18 +143,74 @@
         filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Słowo widoczne */
-.klimat-word.is-visible .klimat-word__text {
+.klimat-word__text {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 12vw, 8rem);
+    font-weight: 300;
+    font-style: italic;
+    color: #fff;
+    text-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.02em;
+    
+    /* Efekt unoszenia */
+    display: inline-block;
+}
+
+/* Stan: wchodzi (od dołu z blur) */
+.klimat-word.is-entering {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 60px));
+    filter: blur(20px);
+}
+
+/* Stan: widoczny (wycentrowany, ostry) */
+.klimat-word.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, -50%);
     filter: blur(0);
 }
 
-/* Słowo wychodzące (w górę) */
-.klimat-word.is-exiting .klimat-word__text {
+/* Stan: wychodzi (do góry z blur) */
+.klimat-word.is-exiting {
     opacity: 0;
-    transform: translateY(-50px);
-    filter: blur(10px);
+    transform: translate(-50%, calc(-50% - 60px));
+    filter: blur(20px);
+}
+
+/* ========================================
+   SCROLL INDICATOR
+   ======================================== */
+
+.klimat-scroll-hint {
+    position: absolute;
+    bottom: var(--space-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    opacity: 0.6;
+    transition: opacity 0.4s ease;
+}
+
+.klimat-scroll-hint span {
+    font-size: var(--text-xs);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.klimat-scroll-hint__line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+.klimat-section.is-scrolled .klimat-scroll-hint {
+    opacity: 0;
 }
 
 /* ========================================
@@ -172,15 +219,15 @@
 
 @media (max-width: 768px) {
     .klimat-section {
-        height: 350vh;
+        min-height: 400vh;
     }
     
     .klimat-word__text {
-        font-size: clamp(1.5rem, 12vw, 4rem);
+        font-size: clamp(2rem, 15vw, 5rem);
     }
     
     .klimat-title {
-        font-size: clamp(2rem, 20vw, 6rem);
+        font-size: clamp(3rem, 25vw, 8rem);
     }
 }
 
@@ -189,13 +236,18 @@
    ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-    .klimat-word__text {
+    .klimat-word {
         transition: opacity 0.3s ease;
-        transform: none;
-        filter: none;
+        filter: none !important;
     }
     
-    .klimat-bg {
+    .klimat-word.is-entering,
+    .klimat-word.is-visible,
+    .klimat-word.is-exiting {
+        transform: translate(-50%, -50%);
+    }
+    
+    .klimat-bg img {
         transition: opacity 0.3s ease;
         filter: none !important;
     }
