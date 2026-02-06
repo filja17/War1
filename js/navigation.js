@@ -1,80 +1,118 @@
 /* ========================================
-   NAVIGATION.JS - WERSJA PROSTA DEBUG
+   NAVIGATION.JS - DZIAŁAJĄCA WERSJA
    ======================================== */
 
 (function() {
-    
-    // Poczekaj na załadowanie strony
-    document.addEventListener('DOMContentLoaded', function() {
+    'use strict';
+
+    function initNavigation() {
         
-        console.log('Navigation: Start');
-        
-        // Znajdź elementy
         var hamburger = document.querySelector('.nav__hamburger');
         var menu = document.querySelector('.nav__menu');
+        var body = document.body;
+        var navLinks = document.querySelectorAll('.nav__link');
         
-        console.log('Hamburger:', hamburger);
-        console.log('Menu:', menu);
-        
-        // Sprawdź czy istnieją
-        if (!hamburger) {
-            console.error('NIE ZNALEZIONO HAMBURGERA!');
+        if (!hamburger || !menu) {
+            console.warn('Navigation: brak elementów');
             return;
         }
         
-        if (!menu) {
-            console.error('NIE ZNALEZIONO MENU!');
-            return;
-        }
-        
-        // Stan menu
         var isOpen = false;
-        
-        // Funkcja toggle
-        function toggleMenu() {
-            console.log('Toggle menu, isOpen:', isOpen);
+        var scrollPosition = 0;
+
+        // Stwórz overlay dla blur
+        var overlay = document.createElement('div');
+        overlay.className = 'nav__overlay';
+        body.appendChild(overlay);
+
+        function openMenu() {
+            isOpen = true;
+            scrollPosition = window.scrollY;
             
-            if (isOpen) {
-                // ZAMKNIJ
-                menu.classList.remove('is-open');
-                hamburger.classList.remove('is-active');
-                document.body.classList.remove('menu-is-open');
-                isOpen = false;
-                console.log('Menu ZAMKNIĘTE');
-            } else {
-                // OTWÓRZ
-                menu.classList.add('is-open');
-                hamburger.classList.add('is-active');
-                document.body.classList.add('menu-is-open');
-                isOpen = true;
-                console.log('Menu OTWARTE');
+            menu.classList.add('is-open');
+            hamburger.classList.add('is-active');
+            overlay.classList.add('is-visible');
+            body.classList.add('menu-is-open');
+            hamburger.setAttribute('aria-expanded', 'true');
+            
+            body.style.top = '-' + scrollPosition + 'px';
+        }
+        
+        function closeMenu() {
+            isOpen = false;
+            
+            menu.classList.remove('is-open');
+            hamburger.classList.remove('is-active');
+            overlay.classList.remove('is-visible');
+            body.classList.remove('menu-is-open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            
+            body.style.top = '';
+            window.scrollTo(0, scrollPosition);
+        }
+        
+        function toggleMenu(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
             }
             
-            // Debug - sprawdź klasy
-            console.log('Menu classes:', menu.className);
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         }
-        
-        // Kliknięcie w hamburger
-        hamburger.addEventListener('click', function(e) {
-            console.log('Hamburger CLICKED');
-            e.preventDefault();
-            e.stopPropagation();
-            toggleMenu();
-        });
-        
-        // Kliknięcie w linki - zamknij menu
-        var links = document.querySelectorAll('.nav__link');
-        links.forEach(function(link) {
-            link.addEventListener('click', function() {
-                console.log('Link clicked');
+
+        // Event: kliknięcie hamburger
+        hamburger.addEventListener('click', toggleMenu);
+
+        // Event: kliknięcie w link
+        for (var i = 0; i < navLinks.length; i++) {
+            navLinks[i].addEventListener('click', function(e) {
                 if (isOpen) {
-                    toggleMenu();
+                    var href = this.getAttribute('href');
+                    e.preventDefault();
+                    closeMenu();
+                    
+                    setTimeout(function() {
+                        window.location.href = href;
+                    }, 300);
                 }
             });
+        }
+
+        // Event: kliknięcie w overlay
+        overlay.addEventListener('click', function() {
+            if (isOpen) {
+                closeMenu();
+            }
         });
-        
-        console.log('Navigation: Ready');
-        
-    });
-    
+
+        // Event: klawisz Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isOpen) {
+                closeMenu();
+            }
+        });
+
+        // Event: resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && isOpen) {
+                closeMenu();
+            }
+        });
+
+        // Reset na start
+        menu.classList.remove('is-open');
+        hamburger.classList.remove('is-active');
+    }
+
+    // Uruchom po załadowaniu DOM
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNavigation);
+    } else {
+        initNavigation();
+    }
+
 })();
