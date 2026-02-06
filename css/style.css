@@ -641,4 +641,46 @@ img {
     transform: translateY(0);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
+/* ========================================
+   FIX: Hamburger tylko na mobile
+   ======================================== */
+
+/* Desktop - ukryj hamburger, pokaż menu normalnie */
+@media (min-width: 769px) {
+    .nav__hamburger {
+        display: none !important;
+    }
+    
+    .nav__menu {
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        width: auto !important;
+        height: auto !important;
+        background: transparent !important;
+        padding: 0 !important;
+        flex-direction: row !important;
+        gap: var(--space-lg) !important;
+    }
+    
+    .nav__menu li {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .nav__menu .nav__link {
+        font-size: var(--text-sm) !important;
+        padding: 0.25em 0 !important;
+    }
+    
+    .nav__menu .nav__link::after {
+        display: block !important;
+    }
+    
+    .nav__overlay {
+        display: none !important;
+    }
+}
+
 
