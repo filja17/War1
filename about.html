@@ -146,82 +146,70 @@
     <!-- ========================================
          GALLERY – Zdjęcia z warsztatów
     ======================================== -->
-    <section class="about-gallery">
+<!-- ========================================
+     KLIMAT – Zdjęcia z blur i napisy
+======================================== -->
+<section class="klimat-section" id="klimat">
     
-    <h2 class="about-gallery__title" data-reveal="fade">Klimat</h2>
-    
-    <!-- Napisy z efektem blur -->
-    <div class="floating-words">
-        <span class="floating-word" data-speed="0.3">delikatność</span>
-        <span class="floating-word" data-speed="0.5">piękno</span>
-        <span class="floating-word" data-speed="0.4">skupienie</span>
-        <span class="floating-word" data-speed="0.6">harmonia</span>
-        <span class="floating-word" data-speed="0.35">cisza</span>
-        <span class="floating-word" data-speed="0.55">tworzenie</span>
+    <!-- Tło ze zdjęciami -->
+    <div class="klimat-backgrounds">
+        <!-- EDYTUJ ŚCIEŻKI DO ZDJĘĆ -->
+        <div class="klimat-bg" data-index="0">
+            <img src="assets/klimat/klimat-1.jpg" alt="Klimat 1">
+        </div>
+        <div class="klimat-bg" data-index="1">
+            <img src="assets/klimat/klimat-2.jpg" alt="Klimat 2">
+        </div>
+        <div class="klimat-bg" data-index="2">
+            <img src="assets/klimat/klimat-3.jpg" alt="Klimat 3">
+        </div>
+        <div class="klimat-bg" data-index="3">
+            <img src="assets/klimat/klimat-4.jpg" alt="Klimat 4">
+        </div>
+        <div class="klimat-bg" data-index="4">
+            <img src="assets/klimat/klimat-5.jpg" alt="Klimat 5">
+        </div>
+        <div class="klimat-bg" data-index="5">
+            <img src="assets/klimat/klimat-6.jpg" alt="Klimat 6">
+        </div>
     </div>
     
-    <div class="gallery-mosaic">
+    <!-- Overlay dla lepszej czytelności tekstu -->
+    <div class="klimat-overlay"></div>
+    
+    <!-- Napisy pojawiające się przy scrollu -->
+    <div class="klimat-content">
         
-        <figure class="gallery-mosaic__item gallery-mosaic__item--large" data-reveal="fade">
-            <img 
-                src="assets/images/gallery/klimat-1.jpg" 
-                alt="Klimat warsztatów"
-                loading="lazy"
-            >
-        </figure>
+        <div class="klimat-word" data-word="0">
+            <span class="klimat-word__text">delikatność</span>
+        </div>
         
-        <figure class="gallery-mosaic__item" data-reveal="fade">
-            <img 
-                src="assets/images/gallery/klimat-2.jpg" 
-                alt="Klimat warsztatów"
-                loading="lazy"
-            >
-        </figure>
+        <div class="klimat-word" data-word="1">
+            <span class="klimat-word__text">skupienie</span>
+        </div>
         
-        <figure class="gallery-mosaic__item" data-reveal="fade">
-            <img 
-                src="assets/images/gallery/klimat-3.jpg" 
-                alt="Klimat warsztatów"
-                loading="lazy"
-            >
-        </figure>
+        <div class="klimat-word" data-word="2">
+            <span class="klimat-word__text">cisza</span>
+        </div>
         
-        <figure class="gallery-mosaic__item gallery-mosaic__item--tall" data-reveal="fade">
-            <img 
-                src="assets/images/Klimat/001.jpg" 
-                alt="Klimat warsztatów"
-                loading="lazy"
-            >
-        </figure>
+        <div class="klimat-word" data-word="3">
+            <span class="klimat-word__text">harmonia</span>
+        </div>
         
-        <figure class="gallery-mosaic__item" data-reveal="fade">
-            <img 
-                src="assets/images/gallery/klimat-5.jpg" 
-                alt="Klimat warsztatów"
-                loading="lazy"
-            >
-        </figure>
+        <div class="klimat-word" data-word="4">
+            <span class="klimat-word__text">tworzenie</span>
+        </div>
         
-        <figure class="gallery-mosaic__item" data-reveal="fade">
-            <img 
-                src="assets/images/gallery/klimat-6.jpg" 
-                alt="Klimat warsztatów"
-                loading="lazy"
-            >
-        </figure>
-        
-        <figure class="gallery-mosaic__item gallery-mosaic__item--wide" data-reveal="fade">
-            <img 
-                src="assets/images/gallery/klimat-7.jpg" 
-                alt="Klimat warsztatów"
-                loading="lazy"
-            >
-        </figure>
+        <div class="klimat-word" data-word="5">
+            <span class="klimat-word__text">piękno</span>
+        </div>
         
     </div>
+    
+    <!-- Tytuł sekcji -->
+    <h2 class="klimat-title">Klimat</h2>
     
 </section>
-
 
     <!-- ========================================
          VALUES – Nasze wartości
@@ -313,6 +301,7 @@
 </body>
 
 </html>
+
 
 
 
