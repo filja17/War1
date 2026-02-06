@@ -251,31 +251,90 @@
 
     <!-- JavaScript -->
     <script src="js/main.js" defer></script>
-    <script src="js/navigation.js" defer></script>
     <script src="js/contact.js" defer></script>
-<script>
-// TYMCZASOWY TEST - USUŃ PO SPRAWDZENIU!
-document.addEventListener('DOMContentLoaded', function() {
-    alert('Test 1: JS działa!');
     
-    var menu = document.querySelector('.nav__menu');
-    if (menu) {
-        alert('Test 2: Menu znalezione! Class: ' + menu.className);
-    } else {
-        alert('Test 2: BŁĄD - Menu NIE istnieje!');
-    }
-    
-    var hamburger = document.querySelector('.nav__hamburger');
-    if (hamburger) {
-        hamburger.onclick = function() {
-            alert('Test 3: Hamburger kliknięty!');
-            menu.classList.toggle('is-open');
-            alert('Test 4: Klasy menu: ' + menu.className);
-        };
-    }
-});
-</script>
-</body>
+    <!-- INLINE NAVIGATION - TEST -->
+    <script>
+    (function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            console.log('NAV: Start');
+            
+            var hamburger = document.querySelector('.nav__hamburger');
+            var menu = document.querySelector('.nav__menu');
+            var body = document.body;
+            
+            console.log('NAV: hamburger=', hamburger);
+            console.log('NAV: menu=', menu);
+            
+            if (!hamburger || !menu) {
+                console.error('NAV: Brak elementów!');
+                return;
+            }
+            
+            // Stwórz overlay
+            var overlay = document.createElement('div');
+            overlay.className = 'nav__overlay';
+            body.appendChild(overlay);
+            
+            var isOpen = false;
+            var scrollY = 0;
+            
+            function openMenu() {
+                console.log('NAV: openMenu()');
+                scrollY = window.scrollY;
+                isOpen = true;
+                menu.classList.add('is-open');
+                hamburger.classList.add('is-active');
+                overlay.classList.add('is-visible');
+                body.classList.add('menu-is-open');
+                body.style.top = '-' + scrollY + 'px';
+            }
+            
+            function closeMenu() {
+                console.log('NAV: closeMenu()');
+                isOpen = false;
+                menu.classList.remove('is-open');
+                hamburger.classList.remove('is-active');
+                overlay.classList.remove('is-visible');
+                body.classList.remove('menu-is-open');
+                body.style.top = '';
+                window.scrollTo(0, scrollY);
+            }
+            
+            hamburger.addEventListener('click', function(e) {
+                console.log('NAV: hamburger clicked!');
+                e.preventDefault();
+                e.stopPropagation();
+                if (isOpen) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+            
+            overlay.addEventListener('click', closeMenu);
+            
+            var links = menu.querySelectorAll('a');
+            for (var i = 0; i < links.length; i++) {
+                links[i].addEventListener('click', function(e) {
+                    if (isOpen && window.innerWidth <= 768) {
+                        e.preventDefault();
+                        var href = this.href;
+                        closeMenu();
+                        setTimeout(function() {
+                            window.location.href = href;
+                        }, 300);
+                    }
+                });
+            }
+            
+            console.log('NAV: Ready!');
+        });
+    })();
+    </script>
 
+</body>
 </html>
+
 
