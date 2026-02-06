@@ -3,30 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cennik warsztatów – przejrzyste ceny">
+    <meta name="description" content="Cennik warsztatów twórczych Atelier">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/pricing-new.css">
+    <link rel="stylesheet" href="css/pricing.css">
     <link rel="stylesheet" href="css/animations.css">
     
     <title>Cennik | Atelier</title>
 </head>
 <body>
 
-    <!-- Nawigacja -->
+    <!-- NAWIGACJA -->
     <nav class="nav" role="navigation">
         <div class="nav__container">
             <a href="index.html" class="nav__logo">Atelier</a>
-          <ul class="nav__menu">
-    <li><a href="offer.html" class="nav__link">Oferta</a></li>
-    <li><a href="pricing.html" class="nav__link">Cennik</a></li>
-    <li><a href="about.html" class="nav__link">O nas</a></li>
-    <li><a href="contact.html" class="nav__link">Kontakt</a></li>
-</ul>
+            
+            <ul class="nav__menu">
+                <li><a href="offer.html" class="nav__link">Oferta</a></li>
+                <li><a href="pricing.html" class="nav__link nav__link--active">Cennik</a></li>
+                <li><a href="about.html" class="nav__link">O nas</a></li>
+                <li><a href="contact.html" class="nav__link">Kontakt</a></li>
+            </ul>
+            
             <button class="nav__hamburger" aria-label="Menu" aria-expanded="false">
                 <span></span>
                 <span></span>
@@ -34,142 +36,211 @@
         </div>
     </nav>
 
-
-    <!-- Header -->
-    <header class="pricing-header">
-        <div class="pricing-header__container" data-reveal="fade">
-            <h1 class="pricing-header__title">Cennik</h1>
-        </div>
-    </header>
-
-
-    <!-- Lista warsztatów -->
-    <main class="pricing-list">
+    <main class="pricing-page">
         
-        <!-- Warsztat 1: Gips polimerowy (LEWO) -->
-        <article class="pricing-item pricing-item--left" data-reveal="fade">
-            <a href="payment.html?workshop=gips-polimerowy" class="pricing-item__link">
-                <figure class="pricing-item__image">
-                    <img 
-                        src="assets/images/workshops/gips-polimerowy.jpg" 
-                        alt="Gips polimerowy"
-                        loading="lazy"
-                    >
-                </figure>
-                <div class="pricing-item__info">
-                    <h2 class="pricing-item__title">Gips polimerowy</h2>
-                    <div class="pricing-item__meta">
-                        <span>4–6 osób</span>
-                        <span>3 godziny</span>
-                    </div>
-                </div>
-                <div class="pricing-item__price">
-                    <span class="pricing-item__amount">280</span>
-                    <span class="pricing-item__currency">PLN</span>
-                </div>
-            </a>
-        </article>
+        <!-- HEADER -->
+        <header class="pricing-header">
+            <div class="pricing-header__container" data-reveal="fade">
+                <h1 class="pricing-header__title">Cennik</h1>
+                <p class="pricing-header__subtitle">
+                    Wszystkie materiały i poczęstunek wliczone w cenę
+                </p>
+            </div>
+        </header>
 
-        <!-- Warsztat 2: Perfumy arabskie (PRAWO) -->
-        <article class="pricing-item pricing-item--right" data-reveal="fade">
-            <a href="payment.html?workshop=perfumy-arabskie" class="pricing-item__link">
-                <figure class="pricing-item__image">
-                    <img 
-                        src="assets/images/workshops/perfumy-arabskie.jpg" 
-                        alt="Arabskie perfumy naturalne"
-                        loading="lazy"
-                    >
-                </figure>
-                <div class="pricing-item__info">
-                    <h2 class="pricing-item__title">Arabskie perfumy naturalne</h2>
-                    <div class="pricing-item__meta">
-                        <span>4–8 osób</span>
-                        <span>2.5 godziny</span>
-                    </div>
-                </div>
-                <div class="pricing-item__price">
-                    <span class="pricing-item__amount">320</span>
-                    <span class="pricing-item__currency">PLN</span>
-                </div>
-            </a>
-        </article>
+        <!-- CENNIK - KARTY -->
+        <section class="pricing-cards">
+            <div class="pricing-cards__container">
 
-        <!-- Warsztat 3: Świece sojowe (LEWO) -->
-        <article class="pricing-item pricing-item--left" data-reveal="fade">
-            <a href="payment.html?workshop=swiece-sojowe" class="pricing-item__link">
-                <figure class="pricing-item__image">
-                    <img 
-                        src="assets/images/workshops/swiece-sojowe.jpg" 
-                        alt="Świece sojowe"
-                        loading="lazy"
-                    >
-                </figure>
-                <div class="pricing-item__info">
-                    <h2 class="pricing-item__title">Świece sojowe</h2>
-                    <div class="pricing-item__meta">
-                        <span>4–8 osób</span>
-                        <span>2 godziny</span>
+                <!-- ============================================
+                     WARSZTAT 1: Gips polimerowy
+                     Edytuj: nazwa, cena, osoby, czas, zdjęcie
+                ============================================ -->
+                <article class="pricing-card" data-reveal="fade">
+                    <div class="pricing-card__image">
+                        <img 
+                            src="assets/images/workshops/Gips-Polimerowy-1.jpg" 
+                            alt="Gips polimerowy"
+                            loading="lazy"
+                        >
                     </div>
-                </div>
-                <div class="pricing-item__price">
-                    <span class="pricing-item__amount">240</span>
-                    <span class="pricing-item__currency">PLN</span>
-                </div>
-            </a>
-        </article>
+                    <div class="pricing-card__content">
+                        <h2 class="pricing-card__name">Gips polimerowy</h2>
+                        <div class="pricing-card__details">
+                            <div class="pricing-card__detail">
+                                <span class="pricing-card__label">Cena</span>
+                                <span class="pricing-card__value pricing-card__value--price">250 zł</span>
+                            </div>
+                            <div class="pricing-card__detail">
+                                <span class="pricing-card__label">Osoby</span>
+                                <span class="pricing-card__value">4-8 osób</span>
+                            </div>
+                            <div class="pricing-card__detail">
+                                <span class="pricing-card__label">Czas</span>
+                                <span class="pricing-card__value">3 godz.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
-        <!-- Warsztat 4: Fermentacja (PRAWO) -->
-        <article class="pricing-item pricing-item--right" data-reveal="fade">
-            <a href="payment.html?workshop=fermentacja" class="pricing-item__link">
-                <figure class="pricing-item__image">
-                    <img 
-                        src="assets/images/workshops/fermentacja.jpg" 
-                        alt="Świat fermentacji"
-                        loading="lazy"
-                    >
-                </figure>
-                <div class="pricing-item__info">
-                    <h2 class="pricing-item__title">Świat fermentacji</h2>
-                    <div class="pricing-item__meta">
-                        <span>4–6 osób</span>
-                        <span>3 godziny</span>
+                <!-- ============================================
+                     WARSZTAT 2: Arabskie perfumy
+                ============================================ -->
+                <article class="pricing-card" data-reveal="fade">
+                    <div class="pricing-card__image">
+                        <img 
+                            src="assets/images/workshops/imagesss.jpg" 
+                            alt="Arabskie perfumy"
+                            loading="lazy"
+                        >
                     </div>
-                </div>
-                <div class="pricing-item__price">
-                    <span class="pricing-item__amount">290</span>
-                    <span class="pricing-item__currency">PLN</span>
-                </div>
-            </a>
-        </article>
+                    <div class="pricing-card__content">
+                        <h2 class="pricing-card__name">Arabskie perfumy</h2>
+                        <div class="pricing-card__details">
+                            <div class="pricing-card__detail">
+                                <span class="pricing-card__label">Cena</span>
+                                <span class="pricing-card__value pricing-card__value--price">300 zł</span>
+                            </div>
+                            <div class="pricing-card__detail">
+                                <span class="pricing-card__label">Osoby</span>
+                                <span class="pricing-card__value">4-6 osób</span>
+                            </div>
+                            <div class="pricing-card__detail">
+                                <span class="pricing-card__label">Czas</span>
+                                <span class="pricing-card__value">2.5 godz.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
-        <!-- Warsztat 5: Ebru (LEWO) -->
-        <article class="pricing-item pricing-item--left" data-reveal="fade">
-            <a href="payment.html?workshop=ebru" class="pricing-item__link">
-                <figure class="pricing-item__image">
-                    <img 
-                        src="assets/images/workshops/ebru.jpg" 
-                        alt="Ebru – marmurkowanie tkanin"
-                        loading="lazy"
-                    >
-                </figure>
-                <div class="pricing-item__info">
-                    <h2 class="pricing-item__title">Ebru – marmurkowanie tkanin</h2>
-                    <div class="pricing-item__meta">
-                        <span>4–8 osób</span>
-                        <span>3 godziny</span>
+                <!-- ============================================
+                     WARSZTAT 3: Świece sojowe
+                ============================================ -->
+                <article class="pricing-card" data-reveal="fade">
+                    <div class="pricing-card__image">
+                        <img 
+                            src="assets/images/workshops/images.jpg" 
+                            alt="Świece sojowe"
+                            loading="lazy"
+                        >
                     </div>
-                </div>
-                <div class="pricing-item__price">
-                    <span class="pricing-item__amount">350</span>
-                    <span class="pricing-item__currency">PLN</span>
-                </div>
-            </a>
-        </article>
+                    <div class="pricing-card__content">
+                        <h2 class="pricing-card__name">Świece sojowe</h2>
+                        <div class="pricing-card__details">
+                            <div class="pricing-card__detail">
+                                <span class="pricing-card__label">Cena</span>
+                                <span class="pricing-card__value pricing-card__value--price">200 zł</span>
+                            </div>
+                            <div class="pricing-card__detail">
+                                <span class="pricing-card__label">Osoby</span>
+                                <span class="pricing-card__value">4-10 osób</span>
+                            </div>
+                            <div class="pricing-card__detail">
+                                <span class="pricing-card__label">Czas</span>
+                                <span class="pricing-card__value">2 godz.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ============================================
+                     WARSZTAT 4: Fermentacja
+                ============================================ -->
+                <article class="pricing-card" data-reveal="fade">
+                    <div class="pricing-card__image">
+                        <img 
+                            src="assets/images/workshops/img-0540-qjuby.jpg" 
+                            alt="Świat fermentacji"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="pricing-card__content">
+                        <h2 class="pricing-card__name">Świat fermentacji</h2>
+                        <div class="pricing-card__details">
+                            <div class="pricing-card__detail">
+                                <span class="pricing-card__label">Cena</span>
+                                <span class="pricing-card__value pricing-card__value--price">280 zł</span>
+                            </div>
+                            <div class="pricing-card__detail">
+                                <span class="pricing-card__label">Osoby</span>
+                                <span class="pricing-card__value">4-8 osób</span>
+                            </div>
+                            <div class="pricing-card__detail">
+                                <span class="pricing-card__label">Czas</span>
+                                <span class="pricing-card__value">3.5 godz.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ============================================
+                     WARSZTAT 5: Ebru
+                ============================================ -->
+                <article class="pricing-card" data-reveal="fade">
+                    <div class="pricing-card__image">
+                        <img 
+                            src="assets/images/workshops/Technique_de_l'eb.jpg" 
+                            alt="Ebru"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="pricing-card__content">
+                        <h2 class="pricing-card__name">Ebru</h2>
+                        <div class="pricing-card__details">
+                            <div class="pricing-card__detail">
+                                <span class="pricing-card__label">Cena</span>
+                                <span class="pricing-card__value pricing-card__value--price">270 zł</span>
+                            </div>
+                            <div class="pricing-card__detail">
+                                <span class="pricing-card__label">Osoby</span>
+                                <span class="pricing-card__value">4-6 osób</span>
+                            </div>
+                            <div class="pricing-card__detail">
+                                <span class="pricing-card__label">Czas</span>
+                                <span class="pricing-card__value">3 godz.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ============================================
+                     DODAJ WIĘCEJ WARSZTATÓW KOPIUJĄC POWYŻSZY BLOK
+                     I ZMIENIAJĄC: src, alt, nazwę, cenę, osoby, czas
+                ============================================ -->
+
+            </div>
+        </section>
+
+        <!-- DODATKOWE INFO -->
+        <section class="pricing-info">
+            <div class="pricing-info__container" data-reveal="fade">
+                <h2 class="pricing-info__heading">Co zawiera cena?</h2>
+                <ul class="pricing-info__list">
+                    <li>Wszystkie materiały potrzebne do warsztatu</li>
+                    <li>Profesjonalne prowadzenie</li>
+                    <li>Napoje i przekąski</li>
+                    <li>Gotową pracę do zabrania do domu</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WYDARZENIA FIRMOWE -->
+        <section class="pricing-corporate">
+            <div class="pricing-corporate__container" data-reveal="fade">
+                <h2 class="pricing-corporate__heading">Wydarzenia firmowe</h2>
+                <p class="pricing-corporate__text">
+                    Organizujesz integrację lub event firmowy? 
+                    Przygotujemy indywidualną ofertę dopasowaną do Twoich potrzeb.
+                </p>
+                <a href="contact.html?subject=firmowe" class="pricing-corporate__button">
+                    Zapytaj o wycenę
+                </a>
+            </div>
+        </section>
 
     </main>
 
-
-    <!-- Stopka -->
+    <!-- STOPKA -->
     <footer class="footer">
         <div class="footer__container">
             <p class="footer__copyright">© 2024 Atelier</p>
@@ -177,10 +248,9 @@
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script src="js/main.js" defer></script>
     <script src="js/navigation.js" defer></script>
 
 </body>
-
 </html>
-
