@@ -1,10 +1,6 @@
 /* ========================================
    PRICING.CSS
-   Cennik - horyzontalne karty z blur tłem
-   ======================================== */
-
-/* ========================================
-   PRICING PAGE
+   Cennik - horyzontalne pasy jak w ofercie
    ======================================== */
 
 .pricing-page {
@@ -38,46 +34,39 @@
 }
 
 /* ========================================
-   PRICING CARDS - LISTA HORYZONTALNA
+   PRICING CARDS - PEŁNA SZEROKOŚĆ
    ======================================== */
 
 .pricing-cards {
-    padding: var(--space-xl) 0 var(--space-2xl);
+    padding: 0;
 }
 
 .pricing-cards__container {
     display: flex;
     flex-direction: column;
-    gap: 2px; /* Minimalna przerwa między kartami */
 }
 
 /* ========================================
-   PRICING CARD - HORYZONTALNA Z BLUR TŁEM
+   PRICING CARD - HORYZONTALNY PAS
    ======================================== */
 
 .pricing-card {
     position: relative;
     width: 100%;
-    min-height: 300px;
+    height: 60vh;
+    min-height: 400px;
+    max-height: 600px;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .pricing-card {
+        height: 70vh;
         min-height: 350px;
     }
 }
 
-@media (min-width: 1024px) {
-    .pricing-card {
-        min-height: 400px;
-    }
-}
-
-/* Tło - zdjęcie z blur */
+/* Zdjęcie jako tło */
 .pricing-card__image {
     position: absolute;
     top: 0;
@@ -91,14 +80,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: blur(8px);
-    transform: scale(1.1); /* Zapobiega białym krawędziom przy blur */
-    transition: filter 0.6s ease, transform 0.6s ease;
+    transition: transform 0.8s ease;
 }
 
 .pricing-card:hover .pricing-card__image img {
-    filter: blur(4px);
-    transform: scale(1.15);
+    transform: scale(1.05);
 }
 
 /* Overlay - przyciemnienie */
@@ -108,48 +94,54 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.4);
     z-index: 2;
     transition: background 0.4s ease;
 }
 
 .pricing-card:hover .pricing-card__overlay {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5);
 }
 
-/* Treść - na wierzchu */
+/* Treść - wycentrowana */
 .pricing-card__content {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     color: #fff;
     padding: var(--space-xl);
-    max-width: 900px;
-    width: 100%;
 }
 
 /* Nazwa warsztatu */
 .pricing-card__name {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 6vw, 4rem);
+    font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 300;
     margin-bottom: var(--space-lg);
     letter-spacing: -0.02em;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* Szczegóły - w jednej linii */
 .pricing-card__details {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: var(--space-lg);
+    justify-content: center;
+    gap: var(--space-xl);
     flex-wrap: wrap;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 600px) {
     .pricing-card__details {
-        gap: var(--space-xl);
+        gap: var(--space-lg);
     }
 }
 
@@ -157,55 +149,53 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
-}
-
-.pricing-card__label {
-    font-size: var(--text-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    opacity: 0.7;
-}
-
-.pricing-card__value {
-    font-family: var(--font-heading);
-    font-size: var(--text-lg);
-    font-weight: 400;
-}
-
-.pricing-card__value--price {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    gap: 6px;
+    position: relative;
 }
 
 /* Separator między detalami */
 .pricing-card__detail:not(:last-child)::after {
     content: '';
     position: absolute;
-    right: calc(-1 * var(--space-lg) / 2);
+    right: calc(-1 * var(--space-xl) / 2);
     top: 50%;
     transform: translateY(-50%);
     width: 1px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.2);
+    height: 50px;
+    background: rgba(255, 255, 255, 0.3);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 600px) {
     .pricing-card__detail:not(:last-child)::after {
-        display: none;
+        right: calc(-1 * var(--space-lg) / 2);
+        height: 40px;
     }
 }
 
-.pricing-card__detail {
-    position: relative;
+.pricing-card__label {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.7;
+}
+
+.pricing-card__value {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 300;
+}
+
+.pricing-card__value--price {
+    font-size: clamp(2rem, 5vw, 3rem);
 }
 
 /* ========================================
-   PRICING INFO
+   PRICING INFO - na dole strony
    ======================================== */
 
 .pricing-info {
     padding: var(--space-2xl) var(--space-lg);
-    background: rgba(0, 0, 0, 0.02);
+    background: var(--color-bg);
 }
 
 .pricing-info__container {
@@ -257,6 +247,7 @@
 .pricing-corporate {
     padding: var(--space-2xl) var(--space-lg);
     text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .pricing-corporate__container {
