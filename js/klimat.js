@@ -1,6 +1,6 @@
 /* ========================================
    KLIMAT.JS
-   Efekt blur zdjęć i pojawiających się napisów
+   Efekt blur zdjęć i lewitujących napisów
    ======================================== */
 
 (function() {
@@ -9,11 +9,11 @@
     class KlimatSection {
         constructor() {
             this.section = null;
+            this.sticky = null;
             this.backgrounds = [];
             this.words = [];
-            this.isActive = false;
-            this.currentBgIndex = 0;
-            this.currentWordIndex = -1;
+            this.totalItems = 0;
+            this.currentIndex = -1;
             
             this.init();
         }
@@ -22,10 +22,16 @@
             this.section = document.querySelector('.klimat-section');
             if (!this.section) return;
             
-            this.backgrounds = this.section.querySelectorAll('.klimat-bg');
-            this.words = this.section.querySelectorAll('.klimat-word');
+            this.sticky = this.section.querySelector('.klimat-sticky');
+            this.backgrounds = Array.from(this.section.querySelectorAll('.klimat-bg'));
+            this.words = Array.from(this.section.querySelectorAll('.klimat-word'));
             
-            if (this.backgrounds.length === 0 || this.words.length === 0) return;
+            this.totalItems = Math.max(this.backgrounds.length, this.words.length);
+            
+            if (this.totalItems === 0) return;
+            
+            // Ustaw początkowe stany
+            this.words.forEach(word => word.classList.add('is-entering'));
             
             // Binduj scroll
             this.bindScroll();
@@ -33,7 +39,7 @@
             // Początkowa aktualizacja
             this.update();
             
-            console.log('Klimat section initialized:', {
+            console.log('Klimat initialized:', {
                 backgrounds: this.backgrounds.length,
                 words: this.words.length
             });
@@ -59,101 +65,64 @@
             const sectionHeight = sectionRect.height;
             const windowHeight = window.innerHeight;
             
-            // Sprawdź czy sekcja jest widoczna
-            const sectionStart = sectionTop;
-            const sectionEnd = sectionTop + sectionHeight;
+            // Czy sekcja jest w viewport?
+            if (sectionTop > windowHeight || sectionTop + sectionHeight < 0) {
+                return;
+            }
             
-            if (sectionStart < windowHeight && sectionEnd > 0) {
-                // Sekcja jest widoczna
-                if (!this.isActive) {
-                    this.section.classList.add('is-active');
-                    this.isActive = true;
-                }
-                
-                // Oblicz postęp scrollowania przez sekcję (0 do 1)
-                const scrollProgress = Math.max(0, Math.min(1, 
-                    (windowHeight - sectionTop) / (sectionHeight + windowHeight)
-                ));
-                
-                // Aktualizuj tła i słowa
-                this.updateBackgrounds(scrollProgress);
-                this.updateWords(scrollProgress);
-                
+            // Oblicz postęp (0 do 1)
+            const scrollableHeight = sectionHeight - windowHeight;
+            const scrolled = -sectionTop;
+            const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
+            
+            // Dodaj klasę gdy zaczyna się scroll
+            if (progress > 0.05) {
+                this.section.classList.add('is-scrolled');
             } else {
-                // Sekcja niewidoczna
-                if (this.isActive) {
-                    this.section.classList.remove('is-active');
-                    this.isActive = false;
-                    this.resetAll();
-                }
+                this.section.classList.remove('is-scrolled');
+            }
+            
+            // Który element powinien być aktywny?
+            const newIndex = Math.min(
+                Math.floor(progress * this.totalItems),
+                this.totalItems - 1
+            );
+            
+            if (newIndex !== this.currentIndex) {
+                this.currentIndex = newIndex;
+                this.updateBackgrounds(newIndex);
+                this.updateWords(newIndex);
             }
         }
         
-        updateBackgrounds(progress) {
-            const totalBgs = this.backgrounds.length;
-            if (totalBgs === 0) return;
-            
-            // Które zdjęcie powinno być aktywne
-            const bgIndex = Math.min(
-                Math.floor(progress * totalBgs),
-                totalBgs - 1
-            );
-            
-            if (bgIndex !== this.currentBgIndex) {
-                this.currentBgIndex = bgIndex;
-            }
-            
-            // Ustaw klasy dla każdego tła
+        updateBackgrounds(activeIndex) {
             this.backgrounds.forEach((bg, index) => {
-                bg.classList.remove('is-active', 'is-blur');
+                bg.classList.remove('is-active', 'is-previous');
                 
-                if (index === bgIndex) {
+                if (index === activeIndex) {
                     bg.classList.add('is-active');
-                } else if (index === bgIndex - 1 || index === bgIndex + 1) {
-                    bg.classList.add('is-blur');
+                } else if (index === activeIndex - 1) {
+                    bg.classList.add('is-previous');
                 }
             });
         }
         
-        updateWords(progress) {
-            const totalWords = this.words.length;
-            if (totalWords === 0) return;
-            
-            // Które słowo powinno być widoczne
-            const wordIndex = Math.min(
-                Math.floor(progress * totalWords),
-                totalWords - 1
-            );
-            
-            // Aktualizuj słowa
+        updateWords(activeIndex) {
             this.words.forEach((word, index) => {
-                word.classList.remove('is-visible', 'is-exiting');
+                word.classList.remove('is-entering', 'is-visible', 'is-exiting');
                 
-                if (index === wordIndex) {
+                if (index === activeIndex) {
                     word.classList.add('is-visible');
-                } else if (index < wordIndex) {
+                } else if (index < activeIndex) {
                     word.classList.add('is-exiting');
+                } else {
+                    word.classList.add('is-entering');
                 }
             });
-            
-            this.currentWordIndex = wordIndex;
-        }
-        
-        resetAll() {
-            this.backgrounds.forEach(bg => {
-                bg.classList.remove('is-active', 'is-blur');
-            });
-            
-            this.words.forEach(word => {
-                word.classList.remove('is-visible', 'is-exiting');
-            });
-            
-            this.currentBgIndex = 0;
-            this.currentWordIndex = -1;
         }
     }
 
-    // Inicjalizacja po załadowaniu DOM
+    // Inicjalizacja
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => new KlimatSection());
     } else {
