@@ -1,18 +1,13 @@
 /* ========================================
    PRICING.CSS
-   Cennik - horyzontalne pasy jak w ofercie
    ======================================== */
 
 .pricing-page {
     min-height: 100vh;
 }
 
-/* ========================================
-   PRICING HEADER
-   ======================================== */
-
 .pricing-header {
-    padding: calc(var(--space-2xl) + 80px) var(--space-lg) var(--space-xl);
+    padding: calc(80px + 4rem) 2rem 3rem;
     text-align: center;
 }
 
@@ -22,51 +17,40 @@
 }
 
 .pricing-header__title {
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 300;
-    margin-bottom: var(--space-md);
+    margin-bottom: 1rem;
 }
 
 .pricing-header__subtitle {
-    font-size: var(--text-lg);
-    color: var(--color-text-light);
-    font-weight: 300;
+    font-size: 1.1rem;
+    color: #666;
 }
 
 /* ========================================
-   PRICING CARDS - PEŁNA SZEROKOŚĆ
+   KARTY CENNIKA - PEŁNA SZEROKOŚĆ
    ======================================== */
 
 .pricing-cards {
+    width: 100%;
     padding: 0;
+    margin: 0;
 }
 
 .pricing-cards__container {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    width: 100%;
 }
-
-/* ========================================
-   PRICING CARD - HORYZONTALNY PAS
-   ======================================== */
 
 .pricing-card {
     position: relative;
     width: 100%;
-    height: 60vh;
-    min-height: 400px;
-    max-height: 600px;
+    height: 50vh;
+    min-height: 350px;
     overflow: hidden;
 }
 
-@media (max-width: 768px) {
-    .pricing-card {
-        height: 70vh;
-        min-height: 350px;
-    }
-}
-
-/* Zdjęcie jako tło */
 .pricing-card__image {
     position: absolute;
     top: 0;
@@ -80,30 +64,18 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s ease;
 }
 
-.pricing-card:hover .pricing-card__image img {
-    transform: scale(1.05);
-}
-
-/* Overlay - przyciemnienie */
 .pricing-card__overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.45);
     z-index: 2;
-    transition: background 0.4s ease;
 }
 
-.pricing-card:hover .pricing-card__overlay {
-    background: rgba(0, 0, 0, 0.5);
-}
-
-/* Treść - wycentrowana */
 .pricing-card__content {
     position: absolute;
     top: 0;
@@ -117,85 +89,54 @@
     justify-content: center;
     text-align: center;
     color: #fff;
-    padding: var(--space-xl);
+    padding: 2rem;
 }
 
-/* Nazwa warsztatu */
 .pricing-card__name {
-    font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 7vw, 4rem);
     font-weight: 300;
-    margin-bottom: var(--space-lg);
-    letter-spacing: -0.02em;
-    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.4);
+    margin-bottom: 2rem;
 }
 
-/* Szczegóły - w jednej linii */
 .pricing-card__details {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--space-xl);
+    gap: 3rem;
     flex-wrap: wrap;
-}
-
-@media (max-width: 600px) {
-    .pricing-card__details {
-        gap: var(--space-lg);
-    }
 }
 
 .pricing-card__detail {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    position: relative;
-}
-
-/* Separator między detalami */
-.pricing-card__detail:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    right: calc(-1 * var(--space-xl) / 2);
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.3);
-}
-
-@media (max-width: 600px) {
-    .pricing-card__detail:not(:last-child)::after {
-        right: calc(-1 * var(--space-lg) / 2);
-        height: 40px;
-    }
+    gap: 0.5rem;
 }
 
 .pricing-card__label {
-    font-size: var(--text-xs);
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     opacity: 0.7;
 }
 
 .pricing-card__value {
-    font-family: var(--font-heading);
-    font-size: var(--text-xl);
-    font-weight: 300;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
 }
 
 .pricing-card__value--price {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: 2rem;
 }
 
 /* ========================================
-   PRICING INFO - na dole strony
+   INFO I CORPORATE
    ======================================== */
 
 .pricing-info {
-    padding: var(--space-2xl) var(--space-lg);
-    background: var(--color-bg);
+    padding: 4rem 2rem;
+    background: #FAFAF8;
 }
 
 .pricing-info__container {
@@ -205,9 +146,10 @@
 }
 
 .pricing-info__heading {
-    font-size: var(--text-2xl);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
     font-weight: 300;
-    margin-bottom: var(--space-lg);
+    margin-bottom: 2rem;
 }
 
 .pricing-info__list {
@@ -215,39 +157,26 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: var(--space-md) var(--space-xl);
+    gap: 1rem 3rem;
+    padding: 0;
 }
 
 .pricing-info__list li {
+    padding-left: 1.5rem;
     position: relative;
-    padding-left: 1.5em;
-    font-size: var(--text-base);
-    color: var(--color-text);
 }
 
 .pricing-info__list li::before {
     content: '✓';
     position: absolute;
     left: 0;
-    color: var(--color-text-light);
+    color: #666;
 }
-
-@media (max-width: 768px) {
-    .pricing-info__list {
-        flex-direction: column;
-        align-items: center;
-        gap: var(--space-sm);
-    }
-}
-
-/* ========================================
-   PRICING CORPORATE
-   ======================================== */
 
 .pricing-corporate {
-    padding: var(--space-2xl) var(--space-lg);
+    padding: 4rem 2rem;
     text-align: center;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(0,0,0,0.05);
 }
 
 .pricing-corporate__container {
@@ -256,33 +185,46 @@
 }
 
 .pricing-corporate__heading {
-    font-size: var(--text-2xl);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
     font-weight: 300;
-    margin-bottom: var(--space-md);
+    margin-bottom: 1rem;
 }
 
 .pricing-corporate__text {
-    font-size: var(--text-base);
-    color: var(--color-text-light);
-    margin-bottom: var(--space-lg);
+    color: #666;
+    margin-bottom: 2rem;
     line-height: 1.7;
 }
 
 .pricing-corporate__button {
-    display: inline-flex;
-    align-items: center;
-    padding: var(--space-md) var(--space-xl);
-    background: transparent;
-    border: 1px solid var(--color-text);
-    color: var(--color-text);
-    font-size: var(--text-sm);
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: 1px solid #1A1A1A;
+    color: #1A1A1A;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    transition: background 0.3s ease, color 0.3s ease;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .pricing-corporate__button:hover {
-    background: var(--color-text);
-    color: var(--color-bg);
-    opacity: 1;
+    background: #1A1A1A;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .pricing-card {
+        height: 60vh;
+    }
+    
+    .pricing-card__details {
+        gap: 2rem;
+    }
+    
+    .pricing-info__list {
+        flex-direction: column;
+        align-items: center;
+    }
 }
