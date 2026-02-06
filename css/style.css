@@ -511,4 +511,47 @@ img {
         height: 60vh;
         min-height: 350px;
     }
+@media (max-width: 480px) {
+    .hero__title {
+        font-size: clamp(2rem, 10vw, 3rem);
+    }
+    
+    .workshop-card__link {
+        height: 60vh;
+        min-height: 350px;
+    }
+    
+    .workshop-card__title {
+        font-size: var(--text-xl);
+    }
+}
+
+/* ========================================
+   DODATKOWE ULEPSZENIA MOBILE
+   ======================================== */
+
+/* Przyciski przyjazne dla dotyku - min 44x44px */
+.nav__link,
+.nav__hamburger,
+.footer__email {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+/* Lepsze odstępy na bardzo małych ekranach */
+@media (max-width: 360px) {
+    :root {
+        --space-lg: 1rem;
+        --space-xl: 1.5rem;
+    }
+    
+    .nav {
+        padding: 12px;
+    }
+    
+    .workshop-card__title {
+        font-size: 1.5rem;
+    }
+}
 
