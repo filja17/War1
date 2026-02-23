@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Warsztat tworzenia mieszanek herbacianych - łączenie ziół i herbat w estetycznych pudełkach z papieru marmurkowego">
-    
+    <meta name="description" content="Warsztat mieszanek herbacianych — łączenie ziół, herbat i tworzenie pudełek z papieru marmurkowego">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/workshop.css">
     <link rel="stylesheet" href="css/animations.css">
-
-    <title>Mieszanki Herbaciane | Atelier</title>
+    <title>Mieszanki Herbaciane | Arbitraż Sztuki</title>
 </head>
 <body class="workshop-page">
 
-    <!-- NAWIGACJA -->
-    <nav class="nav" role="navigation" aria-label="Główna nawigacja">
+    <nav class="nav" role="navigation">
         <div class="nav__container">
-            <a href="index.html" class="nav__logo">Atelier</a>
+            <a href="index.html" class="nav__logo">Arbitraż Sztuki</a>
             <ul class="nav__menu">
                 <li><a href="offer.html" class="nav__link">Oferta</a></li>
                 <li><a href="pricing.html" class="nav__link">Cennik</a></li>
@@ -28,31 +24,22 @@
                 <li><a href="contact.html" class="nav__link">Kontakt</a></li>
             </ul>
             <button class="nav__hamburger" aria-label="Menu" aria-expanded="false">
-                <span></span>
-                <span></span>
+                <span></span><span></span>
             </button>
         </div>
     </nav>
 
-    <!-- HERO -->
     <header class="workshop-hero">
         <div class="workshop-hero__image-wrapper">
-            <img 
-                src="assets/images/workshops/herbata-hero.jpg" 
-                alt="Mieszanki herbaciane" 
-                class="workshop-hero__image"
-            >
+            <img src="assets/images/workshops/herbata-hero.jpg" alt="Mieszanki herbaciane" class="workshop-hero__image">
         </div>
         <div class="workshop-hero__content">
             <span class="workshop-hero__tag">Aromat</span>
             <h1 class="workshop-hero__title">Mieszanki<br>Herbaciane</h1>
         </div>
-        <div class="workshop-hero__scroll">
-            <div class="workshop-hero__scroll-line"></div>
-        </div>
+        <div class="workshop-hero__scroll"><div class="workshop-hero__scroll-line"></div></div>
     </header>
 
-    <!-- INTRO -->
     <section class="workshop-intro">
         <div class="workshop-intro__container">
             <p class="workshop-intro__text">
@@ -63,9 +50,7 @@
         </div>
     </section>
 
-    <!-- GALERIA - UPROSZCZONA -->
     <section class="workshop-gallery">
-        
         <div class="gallery-block gallery-block--duo">
             <figure class="gallery-figure gallery-figure--left">
                 <img src="assets/images/workshops/herbata-1.jpg" alt="Selekcja ziół i herbat" loading="lazy">
@@ -74,20 +59,16 @@
                 <img src="assets/images/workshops/herbata-2.jpg" alt="Komponowanie mieszanek" loading="lazy">
             </figure>
         </div>
-
         <div class="gallery-block gallery-block--full">
             <figure class="gallery-figure">
-                <img src="assets/images/workshops/herbata-3.jpg" alt="Gotowe mieszanki w pudełkach" loading="lazy">
+                <img src="assets/images/workshops/herbata-3.jpg" alt="Gotowe pudełka z papierem marmurkowym" loading="lazy">
             </figure>
         </div>
-
     </section>
 
-    <!-- SZCZEGÓŁY -->
     <section class="workshop-details">
         <div class="workshop-details__container">
             <div class="workshop-details__grid">
-                
                 <div class="workshop-detail">
                     <h3 class="workshop-detail__title">Co stworzymy</h3>
                     <ul class="workshop-detail__list">
@@ -96,7 +77,6 @@
                         <li>Pudełko z papieru marmurkowego</li>
                     </ul>
                 </div>
-
                 <div class="workshop-detail">
                     <h3 class="workshop-detail__title">Czas trwania</h3>
                     <ul class="workshop-detail__list">
@@ -105,7 +85,6 @@
                         <li>Materiały w cenie</li>
                     </ul>
                 </div>
-
                 <div class="workshop-detail">
                     <h3 class="workshop-detail__title">Dla kogo</h3>
                     <ul class="workshop-detail__list">
@@ -114,12 +93,10 @@
                         <li>Od 12 roku życia</li>
                     </ul>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- CENA I REZERWACJA -->
     <section class="workshop-pricing">
         <div class="workshop-pricing__container">
             <div class="workshop-pricing__price">
@@ -130,24 +107,22 @@
             <div class="workshop-pricing__action">
                 <a href="contact.html" class="workshop-pricing__button">
                     Zarezerwuj miejsce
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
                 <p class="workshop-pricing__note">Grupy 4-8 osób</p>
             </div>
         </div>
     </section>
 
-    <!-- STOPKA -->
     <footer class="footer">
         <div class="footer__container">
-            <p class="footer__copyright">© 2024 Atelier</p>
+            <p class="footer__copyright">© 2024 Arbitraż Sztuki</p>
             <a href="mailto:filiptjaworski@gmail.com" class="footer__email">filiptjaworski@gmail.com</a>
         </div>
     </footer>
 
     <script src="js/main.js" defer></script>
     <script src="js/navigation.js" defer></script>
+    <script src="js/workshop.js" defer></script>
 </body>
 </html>
