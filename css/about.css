@@ -140,31 +140,36 @@
 
 
 /* ========================================
-   TEAM MEMBERS
+   TEAM MEMBERS — mniejsze, delikatniejsze
    ======================================== */
 
 .team-member {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 200px 1fr;
     gap: var(--space-lg);
     align-items: start;
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .team-member:last-child {
     margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .team-member__image {
     margin: 0;
     overflow: hidden;
+    border-radius: 2px;
 }
 
 .team-member__image img {
     width: 100%;
     aspect-ratio: 3 / 4;
     object-fit: cover;
-    filter: grayscale(20%);
+    filter: grayscale(15%);
     transition:
         filter 0.5s ease,
         transform 0.5s ease;
@@ -176,30 +181,63 @@
 }
 
 .team-member__info {
-    padding-top: var(--space-sm);
+    padding-top: 0.25rem;
 }
 
 .team-member__name {
     font-family: var(--font-heading);
-    font-size: var(--text-xl);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
     font-weight: 400;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.15rem;
 }
 
 .team-member__role {
     display: block;
-    font-size: var(--text-sm);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
     color: var(--color-text-light);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: var(--space-md);
+    letter-spacing: 0.12em;
+    margin-bottom: var(--space-sm);
 }
 
 .team-member__bio {
-    font-size: var(--text-sm);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
     line-height: 1.7;
     color: var(--color-text-light);
     font-weight: 300;
+    max-width: 500px;
+}
+
+/* ========================================
+   TEAM RESPONSYWNOŚĆ
+   ======================================== */
+
+@media (max-width: 768px) {
+    .team-member {
+        grid-template-columns: 150px 1fr;
+        gap: var(--space-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .team-member {
+        grid-template-columns: 120px 1fr;
+        gap: var(--space-sm);
+    }
+    
+    .team-member__image img {
+        aspect-ratio: 1 / 1;
+    }
+    
+    .team-member__name {
+        font-size: 1.1rem;
+    }
+    
+    .team-member__bio {
+        font-size: 0.85rem;
+    }
 }
 
 
@@ -419,3 +457,4 @@
         filter: none;
     }
 }
+
