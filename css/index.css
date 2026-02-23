@@ -1,0 +1,414 @@
+/* ========================================
+   INDEX.CSS
+   Style strony głównej Arbitraż Sztuki
+   ======================================== */
+
+/* ========================================
+   MANIFEST / WSTĘP
+   ======================================== */
+
+.index-manifesto {
+    padding: var(--space-2xl) var(--space-lg);
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg);
+}
+
+.index-manifesto__container {
+    max-width: 800px;
+    text-align: center;
+}
+
+.index-manifesto__text {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-text);
+    font-style: italic;
+}
+
+/* ========================================
+   WSTAWKI TEKSTOWE (QUOTES)
+   ======================================== */
+
+.index-quote {
+    padding: var(--space-2xl) var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg);
+}
+
+.index-quote__container {
+    max-width: 700px;
+    text-align: center;
+}
+
+.index-quote__text {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-text-light);
+    font-style: italic;
+    position: relative;
+    padding: var(--space-lg) 0;
+}
+
+.index-quote__text::before,
+.index-quote__text::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
+}
+
+.index-quote__text::before {
+    margin-bottom: var(--space-lg);
+}
+
+.index-quote__text::after {
+    margin-top: var(--space-lg);
+}
+
+/* ========================================
+   BLOKI - MAPA ZDJĘĆ
+   ======================================== */
+
+.index-workshops {
+    background: var(--color-bg);
+}
+
+/* --- Wspólne style bloków --- */
+
+.index-block__image-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.index-block__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.index-block__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    transition: background 0.4s ease;
+}
+
+.index-block__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-xl);
+    z-index: 10;
+    color: #fff;
+}
+
+.index-block__tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+}
+
+.index-block__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+}
+
+.index-block__desc {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.5rem;
+    font-weight: 300;
+}
+
+/* --- Hover effects --- */
+
+.index-block__link:hover .index-block__image,
+.index-block__card:hover .index-block__image,
+.index-block__image-side:hover .index-block__image {
+    transform: scale(1.05);
+}
+
+.index-block__link:hover .index-block__overlay,
+.index-block__card:hover .index-block__overlay,
+.index-block__image-side:hover .index-block__overlay {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* ========================================
+   BLOK: Hero Image (pełna szerokość)
+   ======================================== */
+
+.index-block--hero-image {
+    position: relative;
+}
+
+.index-block--hero-image .index-block__link {
+    display: block;
+    position: relative;
+    height: 85vh;
+    min-height: 500px;
+    max-height: 900px;
+}
+
+.index-block--hero-image .index-block__image-wrapper {
+    position: absolute;
+    inset: 0;
+}
+
+/* ========================================
+   BLOK: Duo (dwa obok siebie)
+   ======================================== */
+
+.index-block--duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+}
+
+.index-block__card {
+    display: block;
+    position: relative;
+    height: 75vh;
+    min-height: 450px;
+    max-height: 800px;
+}
+
+.index-block__card .index-block__image-wrapper {
+    position: absolute;
+    inset: 0;
+}
+
+.index-block__card .index-block__title {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+/* ========================================
+   BLOK: Text + Image
+   ======================================== */
+
+.index-block--text-image {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    min-height: 80vh;
+}
+
+.index-block--image-text {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    min-height: 80vh;
+}
+
+.index-block__text {
+    display: flex;
+    align-items: center;
+    padding: var(--space-2xl);
+}
+
+.index-block__text p {
+    font-family: var(--font-heading);
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    max-width: 500px;
+}
+
+.index-block__image-side {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.index-block__content--side {
+    padding: var(--space-lg);
+}
+
+.index-block__content--side .index-block__title {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* ========================================
+   CTA
+   ======================================== */
+
+.index-cta {
+    padding: var(--space-2xl) var(--space-lg);
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--color-bg);
+}
+
+.index-cta__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.index-cta__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 300;
+    color: var(--color-text);
+}
+
+.index-cta__button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 1.2rem 2.5rem;
+    
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    
+    color: var(--color-bg);
+    background: var(--color-text);
+    border: none;
+    cursor: pointer;
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.index-cta__button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.index-cta__button svg {
+    transition: transform 0.3s ease;
+}
+
+.index-cta__button:hover svg {
+    transform: translateX(5px);
+}
+
+/* ========================================
+   RESPONSYWNOŚĆ
+   ======================================== */
+
+@media (max-width: 1024px) {
+    
+    .index-block--duo {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+    
+    .index-block__card {
+        height: 60vh;
+        min-height: 400px;
+    }
+    
+    .index-block--text-image,
+    .index-block--image-text {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+    
+    .index-block--image-text {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .index-block__image-side {
+        height: 60vh;
+        min-height: 400px;
+    }
+    
+    .index-block__text {
+        padding: var(--space-xl) var(--space-lg);
+        min-height: 30vh;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .index-block--hero-image .index-block__link {
+        height: 70vh;
+        min-height: 400px;
+    }
+    
+    .index-block__card {
+        height: 55vh;
+    }
+    
+    .index-block__image-side {
+        height: 55vh;
+    }
+    
+    .index-block__content {
+        padding: var(--space-lg);
+    }
+    
+    .index-block__title {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+    }
+    
+    .index-manifesto {
+        min-height: 40vh;
+        padding: var(--space-xl) var(--space-md);
+    }
+    
+    .index-manifesto__text {
+        font-size: clamp(1.2rem, 4vw, 1.4rem);
+    }
+    
+    .index-quote {
+        padding: var(--space-xl) var(--space-md);
+    }
+    
+    .index-block__text {
+        padding: var(--space-lg) var(--space-md);
+    }
+    
+    .index-cta__button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .index-block--hero-image .index-block__link {
+        height: 60vh;
+        min-height: 350px;
+    }
+    
+    .index-block__card {
+        height: 50vh;
+        min-height: 300px;
+    }
+    
+    .index-block__image-side {
+        height: 50vh;
+        min-height: 300px;
+    }
+}
