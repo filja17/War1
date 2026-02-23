@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Warsztat Ebru — tworzenie papieru marmurkowego i oprawianie notesów">
+    <meta name="description" content="Warsztat Ebru — tworzenie papieru marmurkowego i oprawianie notesów. Arbitraż Sztuki.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/workshop.css">
     <link rel="stylesheet" href="css/animations.css">
+
     <title>Ebru | Arbitraż Sztuki</title>
 </head>
 <body class="workshop-page">
 
-    <nav class="nav" role="navigation">
+    <!-- NAWIGACJA -->
+    <nav class="nav" role="navigation" aria-label="Główna nawigacja">
         <div class="nav__container">
             <a href="index.html" class="nav__logo">Arbitraż Sztuki</a>
             <ul class="nav__menu">
@@ -29,49 +33,101 @@
         </div>
     </nav>
 
+    <!-- HERO -->
     <header class="workshop-hero">
         <div class="workshop-hero__image-wrapper">
-            <img src="assets/images/workshops/ebru-hero.jpg" alt="Ebru — papier marmurkowy" class="workshop-hero__image">
+            <img src="assets/images/workshops/ebru-hero.jpg" alt="Ebru — sztuka malowania na wodzie" class="workshop-hero__image">
         </div>
         <div class="workshop-hero__content">
             <span class="workshop-hero__tag">Marmurkowanie</span>
             <h1 class="workshop-hero__title">Ebru</h1>
         </div>
-        <div class="workshop-hero__scroll"><div class="workshop-hero__scroll-line"></div></div>
+        <div class="workshop-hero__scroll">
+            <div class="workshop-hero__scroll-line"></div>
+        </div>
     </header>
+
+    <!-- INTRO -->
+    <section class="workshop-intro">
+        <div class="workshop-intro__container">
+            <p class="workshop-intro__text">
+                Odkryj starożytną turecką sztukę malowania na wodzie. 
+                Nakładasz farby na powierzchnię wody, tworzysz hipnotyzujące wzory, 
+                a następnie przenosisz je na papier. Z gotowych arkuszy 
+                oprawisz elegancki notes — unikatowy przedmiot stworzony 
+                od początku do końca Twoimi rękami.
+            </p>
+        </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section class="workshop-gallery">
+        
+        <div class="gallery-block gallery-block--duo">
+            <figure class="gallery-figure gallery-figure--left">
+                <img src="assets/images/workshops/ebru-1.jpg" alt="Nakładanie farb na wodę — technika Ebru" loading="lazy">
+            </figure>
+            <figure class="gallery-figure gallery-figure--right">
+                <img src="assets/images/workshops/ebru-2.jpg" alt="Przenoszenie wzoru marmurkowego na papier" loading="lazy">
+            </figure>
+        </div>
+
+        <div class="gallery-block gallery-block--full">
+            <figure class="gallery-figure">
+                <img src="assets/images/workshops/ebru-3.jpg" alt="Gotowe notesy oprawione papierem marmurkowym Ebru" loading="lazy">
+            </figure>
+        </div>
+
+    </section>
 
     <!-- SZCZEGÓŁY -->
     <section class="workshop-details">
         <div class="workshop-details__container">
             <div class="workshop-details__grid">
+                
                 <div class="workshop-detail">
                     <h3 class="workshop-detail__title">Co stworzymy</h3>
                     <ul class="workshop-detail__list">
-                        <li>3-5 arkuszy papieru marmurkowego</li>
+                        <li>3–5 arkuszy papieru marmurkowego</li>
                         <li>Notes oprawiony własnym papierem</li>
                         <li>Unikatowe wzory Ebru</li>
                     </ul>
                 </div>
+
                 <div class="workshop-detail">
                     <h3 class="workshop-detail__title">Czas trwania</h3>
                     <ul class="workshop-detail__list">
                         <li>2 godziny</li>
                         <li>Prace gotowe do zabrania</li>
-                        <li>Materiały w cenie</li>
+                        <li>Wszystkie materiały w cenie</li>
                     </ul>
                 </div>
+
                 <div class="workshop-detail">
                     <h3 class="workshop-detail__title">Dla kogo</h3>
                     <ul class="workshop-detail__list">
                         <li>Miłośnicy sztuki i rękodzieła</li>
-                        <li>Bez doświadczenia</li>
+                        <li>Bez wymaganego doświadczenia</li>
                         <li>Od 12 roku życia</li>
                     </ul>
                 </div>
+
+                <div class="workshop-detail">
+                    <h3 class="workshop-detail__title">Materiały</h3>
+                    <ul class="workshop-detail__list">
+                        <li>Farby Ebru na bazie pigmentów naturalnych</li>
+                        <li>Zagęszczacz karagan</li>
+                        <li>Szydła i grzebienie Ebru</li>
+                        <li>Papier bawełniany</li>
+                        <li>Tektura introligatorska i klej</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
 
+    <!-- CENA I REZERWACJA -->
     <section class="workshop-pricing">
         <div class="workshop-pricing__container">
             <div class="workshop-pricing__price">
@@ -82,17 +138,20 @@
             <div class="workshop-pricing__action">
                 <a href="contact.html" class="workshop-pricing__button">
                     Zarezerwuj miejsce
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
                 </a>
-                <p class="workshop-pricing__note">Grupy 6-10 osób</p>
+                <p class="workshop-pricing__note">Grupy 6–10 osób</p>
             </div>
         </div>
     </section>
 
+    <!-- STOPKA -->
     <footer class="footer">
         <div class="footer__container">
-            <p class="footer__copyright">© 2024 Arbitraż Sztuki</p>
-            <a href="mailto:filiptjaworski@gmail.com" class="footer__email">filiptjaworski@gmail.com</a>
+            <p class="footer__copyright">© 2026 Arbitraż Sztuki</p>
+            <a href="mailto:arbitrazsztuki@gmail.com" class="footer__email">arbitrazsztuki@gmail.com</a>
         </div>
     </footer>
 
