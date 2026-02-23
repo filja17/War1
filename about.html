@@ -48,40 +48,41 @@
         </div>
     </header>
 
-    <!-- STORY -->
+    <!-- STORY — zdjęcie po lewej + tekst po prawej -->
     <section class="about-story">
         <div class="about-story__container">
             
-            <div class="about-story__content" data-reveal="fade">
-                <p class="about-story__text about-story__text--large">
-                    Sztuka jest naszą drogą.
-                </p>
-                <p class="about-story__text">
-                    Radość z tworzenia i zabawa z formą to nasze główne idee. 
-                    Przekonaj się, ile jesteś w stanie zrobić własnymi rękami.
-                </p>
+            <div class="about-story__split" data-reveal="fade">
+                <!-- Zdjęcie po lewej -->
+                <figure class="about-story__image">
+                    <img 
+                        src="assets/images/team/DSCF9958.png" 
+                        alt="Wnętrze pracowni Arbitraż Sztuki"
+                        loading="lazy"
+                    >
+                </figure>
+                <!-- Tekst po prawej -->
+                <div class="about-story__content">
+                    <p class="about-story__text about-story__text--large">
+                        Sztuka jest naszą drogą.
+                    </p>
+                    <p class="about-story__text">
+                        Radość z tworzenia i zabawa z formą to nasze główne idee. 
+                        Przekonaj się, ile jesteś w stanie zrobić własnymi rękami.
+                    </p>
+                    <!-- Słowa-klucze -->
+                    <div class="about-keywords">
+                        <span class="about-keyword">Uważność</span>
+                        <span class="about-keyword__separator">·</span>
+                        <span class="about-keyword">Zachwyt</span>
+                        <span class="about-keyword__separator">·</span>
+                        <span class="about-keyword">Wspólnota</span>
+                    </div>
+                </div>
             </div>
+
+            <!-- ZESPÓŁ — pod spodem -->
             
-            <!-- Słowa-klucze -->
-            <div class="about-keywords" data-reveal="fade">
-                <span class="about-keyword">Uważność</span>
-                <span class="about-keyword__separator">·</span>
-                <span class="about-keyword">Zachwyt</span>
-                <span class="about-keyword__separator">·</span>
-                <span class="about-keyword">Wspólnota</span>
-            </div>
-
-            <!-- Zdjęcie pracowni -->
-            <figure class="about-story__image" data-reveal="fade">
-                <img 
-                    src="assets/images/team/DSCF9958.png" 
-                    alt="Wnętrze pracowni Arbitraż Sztuki"
-                    loading="lazy"
-                >
-            </figure>
-
-            <!-- ZESPÓŁ -->
-
             <!-- Dominika -->
             <article class="team-member" data-reveal="fade">
                 <figure class="team-member__image">
@@ -153,45 +154,21 @@
     <section class="klimat-section" id="klimat">
         <div class="klimat-sticky">
             <div class="klimat-backgrounds">
-                <div class="klimat-bg" data-index="0">
-                    <img src="assets/klimat/1.jpg" alt="">
-                </div>
-                <div class="klimat-bg" data-index="1">
-                    <img src="assets/klimat/2.jpg" alt="">
-                </div>
-                <div class="klimat-bg" data-index="2">
-                    <img src="assets/klimat/3.jpg" alt="">
-                </div>
-                <div class="klimat-bg" data-index="3">
-                    <img src="assets/klimat/4.jpg" alt="">
-                </div>
-                <div class="klimat-bg" data-index="4">
-                    <img src="assets/klimat/5.jpg" alt="">
-                </div>
-                <div class="klimat-bg" data-index="5">
-                    <img src="assets/klimat/6.jpg" alt="">
-                </div>
+                <div class="klimat-bg" data-index="0"><img src="assets/klimat/1.jpg" alt=""></div>
+                <div class="klimat-bg" data-index="1"><img src="assets/klimat/2.jpg" alt=""></div>
+                <div class="klimat-bg" data-index="2"><img src="assets/klimat/3.jpg" alt=""></div>
+                <div class="klimat-bg" data-index="3"><img src="assets/klimat/4.jpg" alt=""></div>
+                <div class="klimat-bg" data-index="4"><img src="assets/klimat/5.jpg" alt=""></div>
+                <div class="klimat-bg" data-index="5"><img src="assets/klimat/6.jpg" alt=""></div>
             </div>
             <div class="klimat-overlay"></div>
             <div class="klimat-words">
-                <div class="klimat-word" data-index="0">
-                    <span class="klimat-word__text">delikatność</span>
-                </div>
-                <div class="klimat-word" data-index="1">
-                    <span class="klimat-word__text">skupienie</span>
-                </div>
-                <div class="klimat-word" data-index="2">
-                    <span class="klimat-word__text">cisza</span>
-                </div>
-                <div class="klimat-word" data-index="3">
-                    <span class="klimat-word__text">harmonia</span>
-                </div>
-                <div class="klimat-word" data-index="4">
-                    <span class="klimat-word__text">tworzenie</span>
-                </div>
-                <div class="klimat-word" data-index="5">
-                    <span class="klimat-word__text">piękno</span>
-                </div>
+                <div class="klimat-word" data-index="0"><span class="klimat-word__text">delikatność</span></div>
+                <div class="klimat-word" data-index="1"><span class="klimat-word__text">skupienie</span></div>
+                <div class="klimat-word" data-index="2"><span class="klimat-word__text">cisza</span></div>
+                <div class="klimat-word" data-index="3"><span class="klimat-word__text">harmonia</span></div>
+                <div class="klimat-word" data-index="4"><span class="klimat-word__text">tworzenie</span></div>
+                <div class="klimat-word" data-index="5"><span class="klimat-word__text">piękno</span></div>
             </div>
             <div class="klimat-scroll-hint">
                 <span>Przewiń</span>
@@ -204,7 +181,6 @@
     <section class="about-values">
         <div class="about-values__container">
             <div class="values-grid" data-reveal-stagger>
-                
                 <div class="value-item" data-reveal="fade">
                     <span class="value-item__number">01</span>
                     <h3 class="value-item__title">Proces ponad efekt</h3>
@@ -213,7 +189,6 @@
                         skupienie, oddech, obecność.
                     </p>
                 </div>
-                
                 <div class="value-item" data-reveal="fade">
                     <span class="value-item__number">02</span>
                     <h3 class="value-item__title">Małe grupy</h3>
@@ -222,7 +197,6 @@
                         uwagę, której potrzebuje.
                     </p>
                 </div>
-                
                 <div class="value-item" data-reveal="fade">
                     <span class="value-item__number">03</span>
                     <h3 class="value-item__title">Bez pośpiechu</h3>
@@ -231,7 +205,6 @@
                         masz przestrzeń.
                     </p>
                 </div>
-                
             </div>
         </div>
     </section>
