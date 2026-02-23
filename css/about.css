@@ -644,4 +644,39 @@
         font-size: clamp(2rem, 10vw, 3rem);
         opacity: 0.1;
     }
+/* ========================================
+   SŁOWA-KLUCZE
+   ======================================== */
+
+.about-keywords {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: var(--space-xl) 0;
+    flex-wrap: wrap;
+}
+
+.about-keyword {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 2.5vw, 2rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--color-text);
+    letter-spacing: 0.02em;
+}
+
+.about-keyword__separator {
+    font-size: 1.5rem;
+    color: var(--color-text-light);
+    opacity: 0.4;
+}
+
+@media (max-width: 480px) {
+    .about-keywords {
+        gap: 1rem;
+    }
+    .about-keyword {
+        font-size: 1.1rem;
+    }
 }
