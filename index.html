@@ -3,189 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Warsztaty twórcze – odkryj naszą ofertę">
+    <meta name="description" content="Arbitraż Sztuki – warsztaty twórcze, które angażują zmysły i rozwijają wyobraźnię">
     
-    <!-- Typografia Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     
-    <!-- Style -->
-   <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/animations.css">
- <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/animations.css">
 
-    <title>Warsztaty | Oferta</title>
+    <title>Arbitraż Sztuki | Warsztaty twórcze</title>
 </head>
 <body>
 
-    <!-- ========================================
-         NAWIGACJA – stała, minimalistyczna
-    ======================================== -->
+    <!-- NAWIGACJA -->
     <nav class="nav" role="navigation" aria-label="Główna nawigacja">
         <div class="nav__container">
-            
-            <!-- Logo / Nazwa -->
-            <a href="index.html" class="nav__logo">
-                Atelier
-            </a>
-            
-            <!-- Menu -->
-<ul class="nav__menu">
-    <li><a href="offer.html" class="nav__link">Oferta</a></li>
-    <li><a href="pricing.html" class="nav__link">Cennik</a></li>
-    <li><a href="about.html" class="nav__link">O nas</a></li>
-    <li><a href="contact.html" class="nav__link">Kontakt</a></li>
-</ul>
-            
-            <!-- Hamburger (mobile) -->
+            <a href="index.html" class="nav__logo">Arbitraż Sztuki</a>
+            <ul class="nav__menu">
+                <li><a href="offer.html" class="nav__link">Oferta</a></li>
+                <li><a href="pricing.html" class="nav__link">Cennik</a></li>
+                <li><a href="about.html" class="nav__link">O nas</a></li>
+                <li><a href="contact.html" class="nav__link">Kontakt</a></li>
+            </ul>
             <button class="nav__hamburger" aria-label="Menu" aria-expanded="false">
                 <span></span>
                 <span></span>
             </button>
-            
         </div>
     </nav>
 
     <!-- ========================================
-         HERO / INTRO – opcjonalne intro przed siatką
+         HERO
     ======================================== -->
-   <!-- W sekcji HERO -->
-<header class="hero">
-    <div class="hero__content" data-reveal="fade">
-        <h1 class="hero__title">Warsztaty</h1>
-        <p class="hero__subtitle">Tworzenie przez doświadczenie</p>
-    </div>
-    <!-- ... -->
-</header>
-
-<!-- Każdy workshop-card może mieć data-reveal -->
-<article class="workshop-card" data-reveal="fade">
-    <!-- ... -->
-</article>
+    <header class="hero">
+        <div class="hero__content" data-reveal="fade">
+            <h1 class="hero__title">Arbitraż Sztuki</h1>
+            <p class="hero__subtitle">Tworzenie przez doświadczenie</p>
+        </div>
+    </header>
 
     <!-- ========================================
-         OFERTA – siatka pełnoekranowych zdjęć
+         MANIFEST / O NAS WSTĘP
     ======================================== -->
-    <!-- ZAMIEŃ CAŁĄ SEKCJĘ <main class="workshops"> NA: -->
-<main class="workshops" role="main">
-    
-    <!-- Warsztat 1: Gips polimerowy -->
-    <article class="workshop-card">
-        <a href="workshop.html?id=gips-polimerowy" class="workshop-card__link">
-            <div class="workshop-card__image-wrapper">
-                <img 
-                    src="assets/images/workshops/Gips-Polimerowy-1.jpg" 
-                    alt="Warsztat gipsu polimerowego" 
-                    class="workshop-card__image"
-                    loading="lazy"
-                >
-                <div class="workshop-card__overlay"></div>
-            </div>
-            <div class="workshop-card__content">
-                <h2 class="workshop-card__title">Gips polimerowy</h2>
-                <span class="workshop-card__tag">Forma</span>
-            </div>
-        </a>
-    </article>
-
-    <!-- Warsztat 2: Arabskie perfumy naturalne -->
-    <article class="workshop-card">
-        <a href="workshop.html?id=perfumy-arabskie" class="workshop-card__link">
-            <div class="workshop-card__image-wrapper">
-                <img 
-                    src="assets/images/workshops/imagesss.jpg" 
-                    alt="Warsztat tworzenia arabskich perfum" 
-                    class="workshop-card__image"
-                    loading="lazy"
-                >
-                <div class="workshop-card__overlay"></div>
-            </div>
-            <div class="workshop-card__content">
-                <h2 class="workshop-card__title">Arabskie perfumy naturalne</h2>
-                <span class="workshop-card__tag">Zapach</span>
-            </div>
-        </a>
-    </article>
-
-    <!-- Warsztat 3: Świece sojowe -->
-    <article class="workshop-card">
-        <a href="workshop.html?id=swiece-sojowe" class="workshop-card__link">
-            <div class="workshop-card__image-wrapper">
-                <img 
-                    src="assets/images/workshops/images.jpg" 
-                    alt="Warsztat tworzenia świec sojowych" 
-                    class="workshop-card__image"
-                    loading="lazy"
-                >
-                <div class="workshop-card__overlay"></div>
-            </div>
-            <div class="workshop-card__content">
-                <h2 class="workshop-card__title">Świece sojowe</h2>
-                <span class="workshop-card__tag">Światło</span>
-            </div>
-        </a>
-    </article>
-
-    <!-- Warsztat 4: Świat fermentacji -->
-    <article class="workshop-card">
-        <a href="workshop.html?id=fermentacja" class="workshop-card__link">
-            <div class="workshop-card__image-wrapper">
-                <img 
-                    src="assets/images/workshops/img-0540-qjuby.jpg" 
-                    alt="Warsztat fermentacji" 
-                    class="workshop-card__image"
-                    loading="lazy"
-                >
-                <div class="workshop-card__overlay"></div>
-            </div>
-            <div class="workshop-card__content">
-                <h2 class="workshop-card__title">Świat fermentacji</h2>
-                <span class="workshop-card__tag">Smak</span>
-            </div>
-        </a>
-    </article>
-
-    <!-- Warsztat 5: Ebru – marmurkowanie tkanin -->
-    <article class="workshop-card">
-        <a href="workshop.html?id=ebru" class="workshop-card__link">
-            <div class="workshop-card__image-wrapper">
-                <img 
-                    src="assets/images/workshops/Technique_de_l'eb.jpg" 
-                    alt="Warsztat Ebru – marmurkowanie tkanin" 
-                    class="workshop-card__image"
-                    loading="lazy"
-                >
-                <div class="workshop-card__overlay"></div>
-            </div>
-            <div class="workshop-card__content">
-                <h2 class="workshop-card__title">Ebru</h2>
-                <span class="workshop-card__tag">Marmurkowanie</span>
-            </div>
-        </a>
-    </article>
-
-</main>
+    <section class="index-manifesto">
+        <div class="index-manifesto__container" data-reveal="fade">
+            <p class="index-manifesto__text">
+                Tworzymy przestrzeń, w której rękodzieło spotyka się z designem. 
+                Nasze warsztaty to nie tylko nauka — to doświadczenie, 
+                które angażuje zmysły, rozwija wyobraźnię i pozwala 
+                stworzyć coś wyjątkowego własnymi rękami.
+            </p>
+        </div>
+    </section>
 
     <!-- ========================================
-         STOPKA – minimalistyczna
+         MAPA ZDJĘĆ - WARSZTATY
+         Editorial layout z klimatycznymi zdjęciami
     ======================================== -->
-   <footer class="footer">
-    <div class="footer__container">
-        <p class="footer__copyright">© 2024 Atelier</p>
-        <a href="mailto:filiptjaworski@gmail.com" class="footer__email">filiptjaworski@gmail.com</a>
-    </div>
-</footer>
+    <main class="index-workshops" role="main">
 
-    <!-- JavaScript -->
-    <script src="js/main.js" defer></script>
-    <script src="js/main.js" defer></script>
-<script src="js/navigation.js" defer></script>
+        <!-- BLOK 1: Herbata - duże zdjęcie z tekstem -->
+        <section class="index-block index-block--hero-image">
+            <a href="workshop-herbata.html" class="index-block__link">
+                <div class="index-block__image-wrapper">
+                    <img 
+                        src="assets/images/index/herbata-klimat.jpg" 
+                        alt="Warsztaty z mieszanek herbacianych — selekcja ziół" 
+                        class="index-block__image"
+                        loading="lazy"
+                    >
+                    <div class="index-block__overlay"></div>
+                </div>
+                <div class="index-block__content">
+                    <span class="index-block__tag">Aromat</span>
+                    <h2 class="index-block__title">Mieszanki Herbaciane</h2>
+                    <p class="index-block__desc">Zioła, herbaty, papier marmurkowy</p>
+                </div>
+            </a>
+        </section>
 
+        <!-- WSTAWKA TEKSTOWA -->
+        <section class="index-quote" data-reveal="fade">
+            <div class="index-quote__container">
+                <p class="index-quote__text">
+                    Każdy warsztat to podróż — od surowego materiału 
+                    do gotowego przedmiotu, który zabierzesz ze sobą.
+                </p>
+            </div>
+        </section>
+
+        <!-- BLOK 2: Dwa obok siebie - Gips + Świece -->
+        <section class="index-block index-block--duo">
+            <a href="workshop-gips.html" class="index-block__card">
+                <div class="index-block__image-wrapper">
+                    <img 
+                        src="assets/images/index/gips-klimat.jpg" 
+                        alt="Warsztaty z gipsu polimerowego — odlewanie form" 
+                        class="index-block__image"
+                        loading="lazy"
+                    >
+                    <div class="index-block__overlay"></div>
+                </div>
+                <div class="index-block__content">
+                    <span class="index-block__tag">Forma</span>
+                    <h2 class="index-block__title">Gips Polimerowy</h2>
+                </div>
+            </a>
+            <a href="workshop-swiece.html" class="index-block__card">
+                <div class="index-block__image-wrapper">
+                    <img 
+                        src="assets/images/index/swiece-klimat.jpg" 
+                        alt="Warsztaty ze świec sojowych — naturalne zapachy" 
+                        class="index-block__image"
+                        loading="lazy"
+                    >
+                    <div class="index-block__overlay"></div>
+                </div>
+                <div class="index-block__content">
+                    <span class="index-block__tag">Światło</span>
+                    <h2 class="index-block__title">Świece Sojowe</h2>
+                </div>
+            </a>
+        </section>
+
+        <!-- BLOK 3: Zdjęcie + tekst obok -->
+        <section class="index-block index-block--text-image">
+            <div class="index-block__text" data-reveal="fade">
+                <p>
+                    Pracujemy z naturalnymi materiałami — wosk sojowy, 
+                    olejki eteryczne, gips polimerowy, pigmenty mineralne. 
+                    Każdy przedmiot jest unikalny, bo tworzysz go Ty.
+                </p>
+            </div>
+            <a href="workshop-perfumy.html" class="index-block__image-side">
+                <div class="index-block__image-wrapper">
+                    <img 
+                        src="assets/images/index/perfumy-klimat.jpg" 
+                        alt="Warsztaty z perfum arabskich — olejki naturalne" 
+                        class="index-block__image"
+                        loading="lazy"
+                    >
+                    <div class="index-block__overlay"></div>
+                </div>
+                <div class="index-block__content index-block__content--side">
+                    <span class="index-block__tag">Zapach</span>
+                    <h2 class="index-block__title">Perfumy Arabskie</h2>
+                </div>
+            </a>
+        </section>
+
+        <!-- BLOK 4: Tekst + zdjęcie (odwrócony) -->
+        <section class="index-block index-block--image-text">
+            <a href="workshop-dekorowanie.html" class="index-block__image-side">
+                <div class="index-block__image-wrapper">
+                    <img 
+                        src="assets/images/index/dekorowanie-klimat.jpg" 
+                        alt="Warsztaty dekorowania świec — formowanie, malowanie" 
+                        class="index-block__image"
+                        loading="lazy"
+                    >
+                    <div class="index-block__overlay"></div>
+                </div>
+                <div class="index-block__content index-block__content--side">
+                    <span class="index-block__tag">Sztuka</span>
+                    <h2 class="index-block__title">Dekorowanie Świec</h2>
+                </div>
+            </a>
+            <div class="index-block__text" data-reveal="fade">
+                <p>
+                    Wyginanie, skręcanie, malowanie — świece stają się 
+                    rzeźbami ze światła. Każda technika otwiera nowe 
+                    możliwości artystycznej ekspresji.
+                </p>
+            </div>
+        </section>
+
+        <!-- WSTAWKA TEKSTOWA -->
+        <section class="index-quote" data-reveal="fade">
+            <div class="index-quote__container">
+                <p class="index-quote__text">
+                    Nie musisz być artystą. Wystarczy, że chcesz tworzyć.
+                </p>
+            </div>
+        </section>
+
+        <!-- BLOK 5: Ebru - szerokie zdjęcie końcowe -->
+        <section class="index-block index-block--hero-image">
+            <a href="workshop-ebru.html" class="index-block__link">
+                <div class="index-block__image-wrapper">
+                    <img 
+                        src="assets/images/index/ebru-klimat.jpg" 
+                        alt="Warsztaty Ebru — malowanie na wodzie, papier marmurkowy" 
+                        class="index-block__image"
+                        loading="lazy"
+                    >
+                    <div class="index-block__overlay"></div>
+                </div>
+                <div class="index-block__content">
+                    <span class="index-block__tag">Marmurkowanie</span>
+                    <h2 class="index-block__title">Ebru</h2>
+                    <p class="index-block__desc">Papier marmurkowy & notesy</p>
+                </div>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- CTA -->
+    <section class="index-cta" data-reveal="fade">
+        <div class="index-cta__container">
+            <h2 class="index-cta__title">Odkryj wszystkie warsztaty</h2>
+            <a href="offer.html" class="index-cta__button">
+                Zobacz ofertę
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- STOPKA -->
+    <footer class="footer">
+        <div class="footer__container">
+            <p class="footer__copyright">© 2024 Arbitraż Sztuki</p>
+            <a href="mailto:filiptjaworski@gmail.com" class="footer__email">filiptjaworski@gmail.com</a>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/navigation.js" defer></script>
 </body>
-
 </html>
-
-
