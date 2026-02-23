@@ -1,10 +1,10 @@
 /* ========================================
    WORKSHOP.CSS
-   Style dla podstron pojedynczych warsztatów
+   Style podstron warsztatów - Arbitraż Sztuki
    ======================================== */
 
 /* ========================================
-   WORKSHOP HERO
+   HERO
    ======================================== */
 
 .workshop-hero {
@@ -56,12 +56,12 @@
 
 .workshop-hero__tag {
     display: inline-block;
+    font-family: var(--font-body);
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.3em;
     opacity: 0.7;
     margin-bottom: var(--space-sm);
-    font-family: var(--font-body);
 }
 
 .workshop-hero__title {
@@ -79,6 +79,7 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
+    cursor: pointer;
 }
 
 .workshop-hero__scroll-line {
@@ -93,18 +94,12 @@
 }
 
 @keyframes scrollPulse {
-    0%, 100% {
-        opacity: 0.4;
-        transform: scaleY(1);
-    }
-    50% {
-        opacity: 1;
-        transform: scaleY(1.2);
-    }
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
 }
 
 /* ========================================
-   WORKSHOP INTRO
+   INTRO
    ======================================== */
 
 .workshop-intro {
@@ -131,7 +126,7 @@
 }
 
 /* ========================================
-   WORKSHOP GALLERY
+   GALLERY
    ======================================== */
 
 .workshop-gallery {
@@ -161,7 +156,7 @@
     transform: scale(1.03);
 }
 
-/* --- Pełna szerokość --- */
+/* Full width */
 .gallery-block--full {
     padding: var(--space-xl) 0;
 }
@@ -177,7 +172,7 @@
     object-fit: cover;
 }
 
-/* --- Dwie kolumny --- */
+/* Duo */
 .gallery-block--duo {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -200,45 +195,8 @@
     object-fit: cover;
 }
 
-/* --- Tekst + zdjęcie --- */
-.gallery-block--text-image {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: var(--space-xl);
-    padding: var(--space-2xl);
-    align-items: center;
-    min-height: 70vh;
-}
-
-.gallery-block--image-text {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: var(--space-xl);
-    padding: var(--space-2xl);
-    align-items: center;
-    min-height: 70vh;
-}
-
-.gallery-text {
-    padding: var(--space-lg);
-}
-
-.gallery-text p {
-    font-family: var(--font-heading);
-    font-size: clamp(1.2rem, 2vw, 1.6rem);
-    font-weight: 300;
-    line-height: 1.7;
-    color: var(--color-text-light);
-}
-
-.gallery-block--text-image .gallery-figure img,
-.gallery-block--image-text .gallery-figure img {
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-}
-
 /* ========================================
-   WORKSHOP DETAILS
+   DETAILS
    ======================================== */
 
 .workshop-details {
@@ -300,7 +258,7 @@
 }
 
 /* ========================================
-   WORKSHOP PRICING
+   PRICING
    ======================================== */
 
 .workshop-pricing {
@@ -359,22 +317,16 @@
     align-items: center;
     gap: var(--space-sm);
     padding: 1.2rem 2.5rem;
-    
     font-family: var(--font-body);
     font-size: 0.85rem;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    
     color: var(--color-bg);
     background: var(--color-text);
     border: none;
     cursor: pointer;
-    
-    transition: 
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .workshop-pricing__button:hover {
@@ -401,29 +353,13 @@
    ======================================== */
 
 @media (max-width: 1024px) {
-    
     .gallery-block--duo {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
     }
-    
     .gallery-block--duo .gallery-figure--left {
         transform: none;
     }
-    
-    .gallery-block--text-image,
-    .gallery-block--image-text {
-        grid-template-columns: 1fr;
-        gap: var(--space-lg);
-        min-height: auto;
-        padding: var(--space-xl) var(--space-lg);
-    }
-    
-    .gallery-block--image-text {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-    
     .workshop-details__grid {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
@@ -431,74 +367,23 @@
 }
 
 @media (max-width: 768px) {
-    
-    .workshop-hero {
-        min-height: 500px;
-        max-height: 700px;
-    }
-    
+    .workshop-hero { min-height: 500px; max-height: 700px; }
     .workshop-hero__content {
         padding: var(--space-lg);
         padding-bottom: calc(var(--space-lg) + 60px);
     }
-    
-    .workshop-hero__title {
-        font-size: clamp(2.5rem, 12vw, 4rem);
-    }
-    
-    .workshop-intro {
-        padding: var(--space-xl) var(--space-md);
-        min-height: 40vh;
-    }
-    
-    .workshop-intro__text {
-        font-size: clamp(1.2rem, 4vw, 1.4rem);
-    }
-    
-    .gallery-block {
-        padding: var(--space-md);
-    }
-    
-    .gallery-block--full {
-        padding: var(--space-lg) 0;
-    }
-    
-    .gallery-block--full .gallery-figure img {
-        height: 50vh;
-    }
-    
-    .gallery-text {
-        padding: var(--space-md);
-    }
-    
-    .workshop-pricing {
-        min-height: auto;
-        padding: var(--space-xl) var(--space-lg);
-    }
-    
-    .workshop-pricing__amount {
-        font-size: clamp(3rem, 15vw, 5rem);
-    }
-    
-    .workshop-pricing__button {
-        width: 100%;
-        justify-content: center;
-        padding: 1rem 2rem;
-    }
+    .workshop-hero__title { font-size: clamp(2.5rem, 12vw, 4rem); }
+    .workshop-intro { padding: var(--space-xl) var(--space-md); min-height: 40vh; }
+    .workshop-intro__text { font-size: clamp(1.2rem, 4vw, 1.4rem); }
+    .gallery-block { padding: var(--space-md); }
+    .gallery-block--full { padding: var(--space-lg) 0; }
+    .gallery-block--full .gallery-figure img { height: 50vh; }
+    .workshop-pricing { min-height: auto; padding: var(--space-xl) var(--space-lg); }
+    .workshop-pricing__amount { font-size: clamp(3rem, 15vw, 5rem); }
+    .workshop-pricing__button { width: 100%; justify-content: center; }
 }
 
 @media (max-width: 480px) {
-    
-    .workshop-hero {
-        min-height: 450px;
-    }
-    
-    .workshop-hero__content {
-        padding: var(--space-md);
-        padding-bottom: calc(var(--space-md) + 50px);
-    }
-    
-    .workshop-details {
-        padding: var(--space-xl) var(--space-md);
-    }
+    .workshop-hero { min-height: 450px; }
+    .workshop-hero__content { padding: var(--space-md); padding-bottom: calc(var(--space-md) + 50px); }
 }
