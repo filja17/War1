@@ -418,3 +418,60 @@ img {
     transform: translateY(0);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
+/* ========================================
+   OFFER TESTIMONIAL
+   Opinia na stronie oferty
+   ======================================== */
+
+.offer-testimonial {
+    padding: var(--space-2xl) var(--space-lg);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.offer-testimonial__container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.offer-testimonial__text {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--color-text);
+    margin: 0 0 var(--space-lg) 0;
+    position: relative;
+}
+
+.offer-testimonial__text::before {
+    content: '"';
+    position: absolute;
+    top: -0.3em;
+    left: -0.5em;
+    font-size: 4em;
+    line-height: 1;
+    color: var(--color-text);
+    opacity: 0.1;
+    font-family: var(--font-heading);
+}
+
+.offer-testimonial__author {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-style: normal;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+    .offer-testimonial__text {
+        font-size: clamp(1.25rem, 5vw, 1.75rem);
+    }
+    .offer-testimonial__text::before {
+        display: none;
+    }
+}
+
