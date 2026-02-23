@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Warsztat tworzenia świec sojowych z naturalnymi olejkami eterycznymi i dodatkami botanicznymi">
+    <meta name="description" content="Warsztat tworzenia świec sojowych z naturalnymi olejkami eterycznymi i dodatkami botanicznymi. Arbitraż Sztuki.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/workshop.css">
     <link rel="stylesheet" href="css/animations.css">
+
     <title>Świece Sojowe | Arbitraż Sztuki</title>
 </head>
 <body class="workshop-page">
 
-    <nav class="nav" role="navigation">
+    <nav class="nav" role="navigation" aria-label="Główna nawigacja">
         <div class="nav__container">
             <a href="index.html" class="nav__logo">Arbitraż Sztuki</a>
             <ul class="nav__menu">
@@ -31,21 +34,24 @@
 
     <header class="workshop-hero">
         <div class="workshop-hero__image-wrapper">
-            <img src="assets/images/workshops/swiece-hero.jpg" alt="Świece sojowe" class="workshop-hero__image">
+            <img src="assets/images/workshops/swiece-hero.jpg" alt="Świece sojowe z naturalnymi zapachami" class="workshop-hero__image">
         </div>
         <div class="workshop-hero__content">
             <span class="workshop-hero__tag">Światło</span>
             <h1 class="workshop-hero__title">Świece<br>Sojowe</h1>
         </div>
-        <div class="workshop-hero__scroll"><div class="workshop-hero__scroll-line"></div></div>
+        <div class="workshop-hero__scroll">
+            <div class="workshop-hero__scroll-line"></div>
+        </div>
     </header>
 
     <section class="workshop-intro">
         <div class="workshop-intro__container">
             <p class="workshop-intro__text">
                 Stwórz własne świece z ekologicznego wosku sojowego. 
-                Dodaj ulubione olejki eteryczne, suszone kwiaty 
-                i botaniczne dodatki — piękne dla oka i zmysłów.
+                Dobierz olejki eteryczne — od relaksującej lawendy po energetyzujące cytrusy. 
+                Ozdobisz świece suszonymi kwiatami i botanicznymi dodatkami. 
+                Każda świeca będzie wyjątkowa — piękna dla oka i kojąca dla zmysłów.
             </p>
         </div>
     </section>
@@ -53,15 +59,15 @@
     <section class="workshop-gallery">
         <div class="gallery-block gallery-block--duo">
             <figure class="gallery-figure gallery-figure--left">
-                <img src="assets/images/workshops/swiece-1.jpg" alt="Wosk sojowy i olejki eteryczne" loading="lazy">
+                <img src="assets/images/workshops/swiece-1.jpg" alt="Topienie wosku sojowego i dobieranie olejków" loading="lazy">
             </figure>
             <figure class="gallery-figure gallery-figure--right">
-                <img src="assets/images/workshops/swiece-2.jpg" alt="Dodatki botaniczne do świec" loading="lazy">
+                <img src="assets/images/workshops/swiece-2.jpg" alt="Suszone kwiaty i botaniczne dodatki do świec" loading="lazy">
             </figure>
         </div>
         <div class="gallery-block gallery-block--full">
             <figure class="gallery-figure">
-                <img src="assets/images/workshops/swiece-3.jpg" alt="Gotowe świece sojowe z kwiatami" loading="lazy">
+                <img src="assets/images/workshops/swiece-3.jpg" alt="Gotowe świece sojowe ozdobione kwiatami" loading="lazy">
             </figure>
         </div>
     </section>
@@ -69,30 +75,47 @@
     <section class="workshop-details">
         <div class="workshop-details__container">
             <div class="workshop-details__grid">
+                
                 <div class="workshop-detail">
                     <h3 class="workshop-detail__title">Co stworzymy</h3>
                     <ul class="workshop-detail__list">
-                        <li>2-3 świece sojowe w naczyniach</li>
+                        <li>2–3 świece sojowe w naczyniach</li>
                         <li>Własna kompozycja zapachowa</li>
                         <li>Dekoracje z suszonych kwiatów</li>
+                        <li>Etykiety i pakowanie na prezent</li>
                     </ul>
                 </div>
+
                 <div class="workshop-detail">
                     <h3 class="workshop-detail__title">Czas trwania</h3>
                     <ul class="workshop-detail__list">
-                        <li>2,5 godziny</li>
+                        <li>1.5 godziny</li>
                         <li>Świece gotowe do zabrania</li>
-                        <li>Materiały w cenie</li>
+                        <li>Wszystkie materiały w cenie</li>
                     </ul>
                 </div>
+
                 <div class="workshop-detail">
                     <h3 class="workshop-detail__title">Dla kogo</h3>
                     <ul class="workshop-detail__list">
                         <li>Miłośnicy aromaterapii</li>
-                        <li>Bez doświadczenia</li>
+                        <li>Osoby szukające relaksu</li>
+                        <li>Bez wymaganego doświadczenia</li>
                         <li>Od 12 roku życia</li>
                     </ul>
                 </div>
+
+                <div class="workshop-detail">
+                    <h3 class="workshop-detail__title">Materiały</h3>
+                    <ul class="workshop-detail__list">
+                        <li>Ekologiczny wosk sojowy</li>
+                        <li>Naturalne olejki eteryczne</li>
+                        <li>Knoty bawełniane</li>
+                        <li>Suszone kwiaty i zioła</li>
+                        <li>Szklane i ceramiczne naczynia</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
@@ -100,24 +123,26 @@
     <section class="workshop-pricing">
         <div class="workshop-pricing__container">
             <div class="workshop-pricing__price">
-                <span class="workshop-pricing__amount">179</span>
+                <span class="workshop-pricing__amount">120</span>
                 <span class="workshop-pricing__currency">zł</span>
                 <span class="workshop-pricing__per">/ osoba</span>
             </div>
             <div class="workshop-pricing__action">
                 <a href="contact.html" class="workshop-pricing__button">
                     Zarezerwuj miejsce
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
                 </a>
-                <p class="workshop-pricing__note">Grupy 4-8 osób</p>
+                <p class="workshop-pricing__note">Grupy 6–10 osób</p>
             </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="footer__container">
-            <p class="footer__copyright">© 2024 Arbitraż Sztuki</p>
-            <a href="mailto:filiptjaworski@gmail.com" class="footer__email">filiptjaworski@gmail.com</a>
+            <p class="footer__copyright">© 2026 Arbitraż Sztuki</p>
+            <a href="mailto:arbitrazsztuki@gmail.com" class="footer__email">arbitrazsztuki@gmail.com</a>
         </div>
     </footer>
 
