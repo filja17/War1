@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Warsztat perfum arabskich na oleju jojoba z naturalnymi olejkami eterycznymi. Arbitraż Sztuki.">
+    <meta name="description" content="Warsztaty perfum arabskich — stwórz własny zapach z naturalnych olejków eterycznych. Arbitraż Sztuki.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +17,7 @@
 </head>
 <body class="workshop-page">
 
+    <!-- NAWIGACJA -->
     <nav class="nav" role="navigation" aria-label="Główna nawigacja">
         <div class="nav__container">
             <a href="index.html" class="nav__logo">Arbitraż Sztuki</a>
@@ -32,9 +33,14 @@
         </div>
     </nav>
 
+    <!-- HERO -->
     <header class="workshop-hero">
         <div class="workshop-hero__image-wrapper">
-            <img src="assets/images/workshops/perfumy-hero.jpg" alt="Perfumy arabskie — olejki naturalne" class="workshop-hero__image">
+            <img 
+                src="assets/images/workshops/perf-5.jpg" 
+                alt="Perfumy arabskie — flakoniki olejkowe wśród żywic i ziół" 
+                class="workshop-hero__image"
+            >
         </div>
         <div class="workshop-hero__content">
             <span class="workshop-hero__tag">Zapach</span>
@@ -45,75 +51,167 @@
         </div>
     </header>
 
+    <!-- HOOK / INTRO -->
     <section class="workshop-intro">
-        <div class="workshop-intro__container">
+        <div class="workshop-intro__container" data-reveal="fade">
             <p class="workshop-intro__text">
-                Wkrocz do świata orientalnej perfumerii. Na bazie szlachetnego oleju jojoba 
-                skomponujesz własne perfumy olejkowe z naturalnych olejków eterycznych. 
-                Poznasz nuty głowy, serca i bazy — stworzysz głębokie, zmysłowe kompozycje, 
-                które rozwijają się na skórze przez cały dzień. 
-                Bez alkoholu, bez chemii — tylko natura.
+                Zapach mówi o nas więcej niż słowa. A co, jeśli stworzysz taki, 
+                który będzie tylko twój? Zanurz się w świecie arabskiej perfumerii 
+                — jednej z najstarszych tradycji komponowania zapachów na świecie.
             </p>
         </div>
     </section>
 
+    <!-- GALERIA: DUO -->
     <section class="workshop-gallery">
         <div class="gallery-block gallery-block--duo">
             <figure class="gallery-figure gallery-figure--left">
-                <img src="assets/images/workshops/perfumy-1.jpg" alt="Naturalne olejki eteryczne i składniki orientalne" loading="lazy">
+                <img 
+                    src="assets/images/workshops/perf-1.jpg" 
+                    alt="Flakoniki perfum arabskich z etykietami ebru wśród żywic" 
+                    loading="lazy"
+                >
             </figure>
             <figure class="gallery-figure gallery-figure--right">
-                <img src="assets/images/workshops/perfumy-2.jpg" alt="Komponowanie nut zapachowych — blending" loading="lazy">
-            </figure>
-        </div>
-        <div class="gallery-block gallery-block--full">
-            <figure class="gallery-figure">
-                <img src="assets/images/workshops/perfumy-3.jpg" alt="Gotowe perfumy olejkowe w eleganckich flakonikach" loading="lazy">
+                <img 
+                    src="assets/images/workshops/perf-4.jpg" 
+                    alt="Kolekcja autorskich perfum olejkowych z roll-on" 
+                    loading="lazy"
+                >
             </figure>
         </div>
     </section>
 
+    <!-- O WARSZTACIE -->
+    <section class="workshop-about" data-reveal="fade">
+        <div class="workshop-about__container">
+            <h2 class="workshop-about__heading">O warsztacie</h2>
+            <p class="workshop-about__text">
+                Arabska perfumeria oparta jest na naturalnych olejkach eterycznych, 
+                absolach i żywicach. W odróżnieniu od perfum alkoholowych, arabskie 
+                mieszanki są intensywniejsze, bardziej długotrwałe i głęboko zmysłowe. 
+                Na warsztatach poznasz zasady kompozycji zapachowych — nuty bazy, serca 
+                i głowy — a potem stworzysz własną, unikatową mieszankę.
+            </p>
+        </div>
+    </section>
+
+    <!-- GALERIA: FULL WIDTH -->
+    <section class="workshop-gallery">
+        <div class="gallery-block gallery-block--full">
+            <figure class="gallery-figure">
+                <img 
+                    src="assets/images/workshops/perf-6.jpg" 
+                    alt="Proces tworzenia perfum — olejki, żywice, zioła i składniki naturalne" 
+                    loading="lazy"
+                >
+            </figure>
+        </div>
+    </section>
+
+    <!-- CO CIĘ CZEKA -->
+    <section class="workshop-program" data-reveal="fade">
+        <div class="workshop-program__container">
+            <h2 class="workshop-program__heading">Co cię czeka</h2>
+            <div class="workshop-program__grid">
+                
+                <div class="workshop-program__item">
+                    <span class="workshop-program__number">01</span>
+                    <h3 class="workshop-program__title">Wstęp merytoryczny</h3>
+                    <p class="workshop-program__desc">
+                        Kilka słów o arabskiej perfumerii i jej różnicach z perfumami 
+                        alkoholowymi. Podstawy aromaterapii i kompozycji zapachowych.
+                    </p>
+                </div>
+
+                <div class="workshop-program__item">
+                    <span class="workshop-program__number">02</span>
+                    <h3 class="workshop-program__title">Podróż zmysłem węchu</h3>
+                    <p class="workshop-program__desc">
+                        Intuicyjny proces poznawania zapachów — przejdziesz przez 
+                        kilkanaście najróżniejszych olejków eterycznych i absolów.
+                    </p>
+                </div>
+
+                <div class="workshop-program__item">
+                    <span class="workshop-program__number">03</span>
+                    <h3 class="workshop-program__title">Komponowanie zapachu</h3>
+                    <p class="workshop-program__desc">
+                        Stworzysz swój własny, autorski perfum krok po kroku 
+                        — od nut bazy, przez serce, aż po głowę kompozycji.
+                    </p>
+                </div>
+
+                <div class="workshop-program__item">
+                    <span class="workshop-program__number">04</span>
+                    <h3 class="workshop-program__title">Tworzenie etykiety</h3>
+                    <p class="workshop-program__desc">
+                        Zaprojektujesz etykietę dla swojego flakoniku 
+                        — z użyciem kaligrafii lub techniki ebru.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA: DUO dolne -->
+    <section class="workshop-gallery">
+        <div class="gallery-block gallery-block--duo">
+            <figure class="gallery-figure gallery-figure--left">
+                <img 
+                    src="assets/images/workshops/perf-2.jpg" 
+                    alt="Przelewanie olejku do flakonika — proces tworzenia perfum" 
+                    loading="lazy"
+                >
+            </figure>
+            <figure class="gallery-figure gallery-figure--right">
+                <img 
+                    src="assets/images/workshops/perf-3.jpg" 
+                    alt="Gotowe flakoniki autorskich perfum arabskich" 
+                    loading="lazy"
+                >
+            </figure>
+        </div>
+    </section>
+
+    <!-- ZABIERASZ ZE SOBĄ -->
+    <section class="workshop-takeaway" data-reveal="fade">
+        <div class="workshop-takeaway__container">
+            <h2 class="workshop-takeaway__heading">Zabierasz ze sobą</h2>
+            <p class="workshop-takeaway__text">
+                Flakonik z autorskimi perfumami olejkowymi oraz wiedzę 
+                o podstawach aromaterapii i kompozycji zapachowych.
+            </p>
+        </div>
+    </section>
+
+    <!-- DETALE -->
     <section class="workshop-details">
         <div class="workshop-details__container">
             <div class="workshop-details__grid">
                 
                 <div class="workshop-detail">
-                    <h3 class="workshop-detail__title">Co stworzymy</h3>
-                    <ul class="workshop-detail__list">
-                        <li>2 autorskie perfumy olejkowe (10ml każde)</li>
-                        <li>Własna kompozycja zapachowa</li>
-                        <li>Elegancki flakonik z aplikatorem kulkowym</li>
-                        <li>Receptura do samodzielnego odtworzenia</li>
-                    </ul>
-                </div>
-
-                <div class="workshop-detail">
                     <h3 class="workshop-detail__title">Czas trwania</h3>
                     <ul class="workshop-detail__list">
-                        <li>2 godziny</li>
-                        <li>Degustacja i poznawanie olejków</li>
-                        <li>Wszystkie materiały w cenie</li>
+                        <li>ok. 2 godziny</li>
                     </ul>
                 </div>
 
                 <div class="workshop-detail">
-                    <h3 class="workshop-detail__title">Dla kogo</h3>
+                    <h3 class="workshop-detail__title">W cenie</h3>
                     <ul class="workshop-detail__list">
-                        <li>Miłośnicy orientalnych zapachów</li>
-                        <li>Osoby z wrażliwą skórą</li>
-                        <li>Bez wymaganego doświadczenia</li>
-                        <li>Od 16 roku życia</li>
-                    </ul>
-                </div>
-
-                <div class="workshop-detail">
-                    <h3 class="workshop-detail__title">Materiały</h3>
-                    <ul class="workshop-detail__list">
-                        <li>Olej jojoba (baza)</li>
-                        <li>Naturalne olejki eteryczne (20+ rodzajów)</li>
-                        <li>Absolut róży, jaśminu, neroli</li>
-                        <li>Szklane flakoniki z roll-on</li>
+                        <li>Wszystkie olejki eteryczne i absolę</li>
+                        <li>Flakon z aplikatorem</li>
+                        <li>Materiały do etykiety</li>
                         <li>Bibuły zapachowe do testowania</li>
+                    </ul>
+                </div>
+
+                <div class="workshop-detail">
+                    <h3 class="workshop-detail__title">Liczba miejsc</h3>
+                    <ul class="workshop-detail__list">
+                        <li>max X osób</li>
                     </ul>
                 </div>
 
@@ -121,10 +219,11 @@
         </div>
     </section>
 
+    <!-- CENA + CTA -->
     <section class="workshop-pricing">
-        <div class="workshop-pricing__container">
+        <div class="workshop-pricing__container" data-reveal="fade">
             <div class="workshop-pricing__price">
-                <span class="workshop-pricing__amount">160</span>
+                <span class="workshop-pricing__amount">XXX</span>
                 <span class="workshop-pricing__currency">zł</span>
                 <span class="workshop-pricing__per">/ osoba</span>
             </div>
@@ -135,11 +234,11 @@
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
-                <p class="workshop-pricing__note">Grupy 6–10 osób</p>
             </div>
         </div>
     </section>
 
+    <!-- STOPKA -->
     <footer class="footer">
         <div class="footer__container">
             <p class="footer__copyright">© 2026 Arbitraż Sztuki</p>
