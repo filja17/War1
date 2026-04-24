@@ -411,4 +411,36 @@
         height: 50vh;
         min-height: 300px;
     }
+   /* ========================================
+   BLOK DEKORACYJNY (bez linka)
+   ======================================== */
+
+.index-block--decorative {
+    position: relative;
+    cursor: default;
+}
+
+.index-block--decorative .index-block__image-wrapper {
+    position: relative;
+    height: 85vh;
+    min-height: 500px;
+    max-height: 900px;
+}
+
+.index-block--decorative .index-block__overlay {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .index-block--decorative .index-block__image-wrapper {
+        height: 70vh;
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .index-block--decorative .index-block__image-wrapper {
+        height: 60vh;
+        min-height: 350px;
+    }
 }
