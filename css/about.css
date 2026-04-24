@@ -140,13 +140,13 @@
 
 
 /* ========================================
-   TEAM MEMBERS — mniejsze, delikatniejsze
+   TEAM MEMBERS — większe zdjęcia
    ======================================== */
 
 .team-member {
     display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: var(--space-lg);
+    grid-template-columns: 300px 1fr;
+    gap: var(--space-xl);
     align-items: start;
     margin-bottom: var(--space-xl);
     padding-bottom: var(--space-xl);
@@ -181,33 +181,33 @@
 }
 
 .team-member__info {
-    padding-top: 0.25rem;
+    padding-top: 0.5rem;
 }
 
 .team-member__name {
     font-family: var(--font-heading);
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
     font-weight: 400;
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.2rem;
 }
 
 .team-member__role {
     display: block;
     font-family: var(--font-body);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: var(--color-text-light);
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
 }
 
 .team-member__bio {
     font-family: var(--font-body);
-    font-size: 0.9rem;
-    line-height: 1.7;
+    font-size: 0.95rem;
+    line-height: 1.8;
     color: var(--color-text-light);
     font-weight: 300;
-    max-width: 500px;
+    max-width: 550px;
 }
 
 /* ========================================
