@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Warsztat mieszanek herbacianych — łączenie ziół i herbat w estetycznych pudełkach z papieru marmurkowego. Arbitraż Sztuki.">
+    <meta name="description" content="Warsztaty mieszania herbat i ziół — skomponuj własne mieszanki. Arbitraż Sztuki.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,10 +13,11 @@
     <link rel="stylesheet" href="css/workshop.css">
     <link rel="stylesheet" href="css/animations.css">
 
-    <title>Mieszanki Herbaciane | Arbitraż Sztuki</title>
+    <title>Herbaty i Zioła | Arbitraż Sztuki</title>
 </head>
 <body class="workshop-page">
 
+    <!-- NAWIGACJA -->
     <nav class="nav" role="navigation" aria-label="Główna nawigacja">
         <div class="nav__container">
             <a href="index.html" class="nav__logo">Arbitraż Sztuki</a>
@@ -32,88 +33,187 @@
         </div>
     </nav>
 
+    <!-- HERO -->
     <header class="workshop-hero">
         <div class="workshop-hero__image-wrapper">
-            <img src="assets/images/workshops/herbata-hero.jpg" alt="Mieszanki herbaciane — zioła i herbaty" class="workshop-hero__image">
+            <img 
+                src="assets/images/workshops/herbata-hero.jpg" 
+                alt="Herbaty i zioła — sypkie mieszanki i suszone kwiaty" 
+                class="workshop-hero__image"
+            >
         </div>
         <div class="workshop-hero__content">
             <span class="workshop-hero__tag">Aromat</span>
-            <h1 class="workshop-hero__title">Mieszanki<br>Herbaciane</h1>
+            <h1 class="workshop-hero__title">Herbaty<br>& Zioła</h1>
         </div>
         <div class="workshop-hero__scroll">
             <div class="workshop-hero__scroll-line"></div>
         </div>
     </header>
 
+    <!-- HOOK / INTRO -->
     <section class="workshop-intro">
-        <div class="workshop-intro__container">
+        <div class="workshop-intro__container" data-reveal="fade">
             <p class="workshop-intro__text">
-                Skomponuj własne mieszanki herbaciane łącząc zioła i herbaty. 
-                Poznasz tajniki smakowych kompozycji — od delikatnych kwiatowych nut 
-                po intensywne ziołowe aromaty. Zapakujesz mieszanki 
-                w pojedyncze torebki i stworzysz estetyczne pudełko 
-                z papieru marmurkowego — sklejone własnoręcznie od podstaw.
+                Każda herbata to unikalny aromat, a każde ziele ma swoje 
+                naturalne właściwości lecznicze. Wejdź z nami w ich świat 
+                — urzeką cię one swoimi różnorodnymi smakami i zastosowaniami.
             </p>
         </div>
     </section>
 
+    <!-- GALERIA: DUO -->
     <section class="workshop-gallery">
         <div class="gallery-block gallery-block--duo">
             <figure class="gallery-figure gallery-figure--left">
-                <img src="assets/images/workshops/herbata-1.jpg" alt="Selekcja ziół, kwiatów i herbat do mieszanek" loading="lazy">
+                <img 
+                    src="assets/images/workshops/herbata-1.jpg" 
+                    alt="Sypkie herbaty i suszone kwiaty — składniki mieszanek" 
+                    loading="lazy"
+                >
             </figure>
             <figure class="gallery-figure gallery-figure--right">
-                <img src="assets/images/workshops/herbata-2.jpg" alt="Komponowanie mieszanek i pakowanie w torebki" loading="lazy">
-            </figure>
-        </div>
-        <div class="gallery-block gallery-block--full">
-            <figure class="gallery-figure">
-                <img src="assets/images/workshops/herbata-3.jpg" alt="Gotowe mieszanki w pudełkach z papieru marmurkowego" loading="lazy">
+                <img 
+                    src="assets/images/workshops/herbata-2.jpg" 
+                    alt="Komponowanie własnej mieszanki herbacianej" 
+                    loading="lazy"
+                >
             </figure>
         </div>
     </section>
 
+    <!-- O WARSZTACIE -->
+    <section class="workshop-about" data-reveal="fade">
+        <div class="workshop-about__container">
+            <h2 class="workshop-about__heading">O warsztacie</h2>
+            <p class="workshop-about__text">
+                Podczas warsztatów wprowadzimy cię w historię i przeznaczenie 
+                kilku rodzajów herbat oraz właściwości wybranych roślin 
+                z dziedziny ziołolecznictwa. Następnie przejdziemy do części 
+                praktycznej, która pozwoli ci zanurzyć się w magii naparów 
+                oraz głębi własnej intuicji.
+            </p>
+        </div>
+    </section>
+
+    <!-- GALERIA: FULL WIDTH -->
+    <section class="workshop-gallery">
+        <div class="gallery-block gallery-block--full">
+            <figure class="gallery-figure">
+                <img 
+                    src="assets/images/workshops/herbata-3.jpg" 
+                    alt="Degustacja herbat i mieszanek ziołowych" 
+                    loading="lazy"
+                >
+            </figure>
+        </div>
+    </section>
+
+    <!-- CO CIĘ CZEKA -->
+    <section class="workshop-program" data-reveal="fade">
+        <div class="workshop-program__container">
+            <h2 class="workshop-program__heading">Co cię czeka</h2>
+            <div class="workshop-program__grid">
+                
+                <div class="workshop-program__item">
+                    <span class="workshop-program__number">01</span>
+                    <h3 class="workshop-program__title">Wstęp merytoryczny</h3>
+                    <p class="workshop-program__desc">
+                        O rodzajach herbat — biała, zielona, oolong, czarna, pu-erh. 
+                        Właściwości ziół i kwiatów, łączenie i synergia roślin.
+                    </p>
+                </div>
+
+                <div class="workshop-program__item">
+                    <span class="workshop-program__number">02</span>
+                    <h3 class="workshop-program__title">Komponowanie mieszanek</h3>
+                    <p class="workshop-program__desc">
+                        Stworzysz 13–15 autorskich blendów, zgodnie z twoją 
+                        intuicją i potrzebami — spokój, oczyszczenie, sen, energia.
+                    </p>
+                </div>
+
+                <div class="workshop-program__item">
+                    <span class="workshop-program__number">03</span>
+                    <h3 class="workshop-program__title">Degustacja</h3>
+                    <p class="workshop-program__desc">
+                        Spróbujesz własnej mieszanki ziołowej lub herbacianej 
+                        — prosto z filiżanki, na świeżo zaparzoną.
+                    </p>
+                </div>
+
+                <div class="workshop-program__item">
+                    <span class="workshop-program__number">04</span>
+                    <h3 class="workshop-program__title">Pakowanie z intencją</h3>
+                    <p class="workshop-program__desc">
+                        Każda mieszanka trafi do bawełnianej torebki. Na odwrocie 
+                        każdej saszetki zapiszesz, na co jest przeznaczona. 
+                        Całość włożysz do ekologicznego opakowania.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA: DUO dolne -->
+    <section class="workshop-gallery">
+        <div class="gallery-block gallery-block--duo">
+            <figure class="gallery-figure gallery-figure--left">
+                <img 
+                    src="assets/images/workshops/herbata-4.jpg" 
+                    alt="Bawełniane torebki z autorskimi mieszankami" 
+                    loading="lazy"
+                >
+            </figure>
+            <figure class="gallery-figure gallery-figure--right">
+                <img 
+                    src="assets/images/workshops/herbata-5.jpg" 
+                    alt="Gotowe opakowanie z mieszankami herbacianymi" 
+                    loading="lazy"
+                >
+            </figure>
+        </div>
+    </section>
+
+    <!-- ZABIERASZ ZE SOBĄ -->
+    <section class="workshop-takeaway" data-reveal="fade">
+        <div class="workshop-takeaway__container">
+            <h2 class="workshop-takeaway__heading">Zabierasz ze sobą</h2>
+            <p class="workshop-takeaway__text">
+                Opakowanie z piętnastoma torebkami własnych mieszanek 
+                w ekologicznych pudełkach, z opisami użytych składników 
+                wraz z ich właściwościami.
+            </p>
+        </div>
+    </section>
+
+    <!-- DETALE -->
     <section class="workshop-details">
         <div class="workshop-details__container">
             <div class="workshop-details__grid">
                 
                 <div class="workshop-detail">
-                    <h3 class="workshop-detail__title">Co stworzymy</h3>
-                    <ul class="workshop-detail__list">
-                        <li>3–4 autorskie mieszanki herbaciane</li>
-                        <li>Pojedyncze torebki z herbatą</li>
-                        <li>Pudełko z papieru marmurkowego</li>
-                        <li>Personalizowane etykiety</li>
-                    </ul>
-                </div>
-
-                <div class="workshop-detail">
                     <h3 class="workshop-detail__title">Czas trwania</h3>
                     <ul class="workshop-detail__list">
-                        <li>1.5 godziny</li>
-                        <li>Przerwa na degustację herbat</li>
-                        <li>Wszystkie materiały w cenie</li>
+                        <li>ok. 2 godziny</li>
                     </ul>
                 </div>
 
                 <div class="workshop-detail">
-                    <h3 class="workshop-detail__title">Dla kogo</h3>
+                    <h3 class="workshop-detail__title">W cenie</h3>
                     <ul class="workshop-detail__list">
-                        <li>Miłośnicy herbaty i ziół</li>
-                        <li>Osoby szukające prezentu handmade</li>
-                        <li>Bez wymaganego doświadczenia</li>
-                        <li>Od 12 roku życia</li>
+                        <li>Wszystkie herbaty i zioła</li>
+                        <li>Bawełniane torebki</li>
+                        <li>Ekologiczne opakowania</li>
+                        <li>Inne potrzebne materiały</li>
                     </ul>
                 </div>
 
                 <div class="workshop-detail">
-                    <h3 class="workshop-detail__title">Materiały</h3>
+                    <h3 class="workshop-detail__title">Liczba miejsc</h3>
                     <ul class="workshop-detail__list">
-                        <li>Herbaty liściaste (zielona, czarna, biała)</li>
-                        <li>Suszone zioła i kwiaty</li>
-                        <li>Owoce liofilizowane</li>
-                        <li>Torebki do herbat z filtru</li>
-                        <li>Papier marmurkowy, tektura, klej</li>
+                        <li>max X osób</li>
                     </ul>
                 </div>
 
@@ -121,10 +221,11 @@
         </div>
     </section>
 
+    <!-- CENA + CTA -->
     <section class="workshop-pricing">
-        <div class="workshop-pricing__container">
+        <div class="workshop-pricing__container" data-reveal="fade">
             <div class="workshop-pricing__price">
-                <span class="workshop-pricing__amount">120</span>
+                <span class="workshop-pricing__amount">XXX</span>
                 <span class="workshop-pricing__currency">zł</span>
                 <span class="workshop-pricing__per">/ osoba</span>
             </div>
@@ -135,11 +236,11 @@
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
-                <p class="workshop-pricing__note">Grupy 6–10 osób</p>
             </div>
         </div>
     </section>
 
+    <!-- STOPKA -->
     <footer class="footer">
         <div class="footer__container">
             <p class="footer__copyright">© 2026 Arbitraż Sztuki</p>
