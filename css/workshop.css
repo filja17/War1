@@ -382,6 +382,159 @@
     .workshop-pricing__amount { font-size: clamp(3rem, 15vw, 5rem); }
     .workshop-pricing__button { width: 100%; justify-content: center; }
 }
+/* ========================================
+   ABOUT (O warsztacie)
+   ======================================== */
+
+.workshop-about {
+    padding: var(--space-2xl) var(--space-lg);
+    background: var(--color-bg);
+}
+
+.workshop-about__container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.workshop-about__heading {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-lg);
+}
+
+.workshop-about__text {
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--color-text);
+}
+
+/* ========================================
+   PROGRAM (Co cię czeka)
+   ======================================== */
+
+.workshop-program {
+    padding: var(--space-2xl) var(--space-lg);
+    background: var(--color-bg);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.workshop-program__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.workshop-program__heading {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-xl);
+}
+
+.workshop-program__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+}
+
+.workshop-program__item {
+    padding: var(--space-lg) 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.workshop-program__number {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.08);
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+}
+
+.workshop-program__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+    line-height: 1.3;
+}
+
+.workshop-program__desc {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--color-text-light);
+}
+
+/* ========================================
+   TAKEAWAY (Zabierasz ze sobą)
+   ======================================== */
+
+.workshop-takeaway {
+    padding: var(--space-2xl) var(--space-lg);
+    min-height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.workshop-takeaway__container {
+    max-width: 700px;
+    text-align: center;
+}
+
+.workshop-takeaway__heading {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-lg);
+}
+
+.workshop-takeaway__text {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-text);
+    font-style: italic;
+}
+
+/* ========================================
+   PROGRAM + ABOUT RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .workshop-program__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .workshop-about,
+    .workshop-program {
+        padding: var(--space-xl) var(--space-md);
+    }
+
+    .workshop-takeaway {
+        min-height: auto;
+        padding: var(--space-xl) var(--space-md);
+    }
+}
 
 @media (max-width: 480px) {
     .workshop-hero { min-height: 450px; }
