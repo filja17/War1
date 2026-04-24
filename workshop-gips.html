@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Warsztat gipsu polimerowego — odlewanie podkładek i dekoracji w formach silikonowych. Arbitraż Sztuki.">
+    <meta name="description" content="Warsztaty z gipsu polimerowego — odlewanie form, tacki, miseczki, kolczyki. Arbitraż Sztuki.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +17,7 @@
 </head>
 <body class="workshop-page">
 
+    <!-- NAWIGACJA -->
     <nav class="nav" role="navigation" aria-label="Główna nawigacja">
         <div class="nav__container">
             <a href="index.html" class="nav__logo">Arbitraż Sztuki</a>
@@ -32,9 +33,14 @@
         </div>
     </nav>
 
+    <!-- HERO -->
     <header class="workshop-hero">
         <div class="workshop-hero__image-wrapper">
-            <img src="assets/images/workshops/gips-hero.jpg" alt="Gips polimerowy — eleganckie podkładki" class="workshop-hero__image">
+            <img 
+                src="assets/images/workshops/gips-hero.jpg" 
+                alt="Gips polimerowy — odlewane formy i kształty" 
+                class="workshop-hero__image"
+            >
         </div>
         <div class="workshop-hero__content">
             <span class="workshop-hero__tag">Forma</span>
@@ -45,75 +51,169 @@
         </div>
     </header>
 
+    <!-- HOOK / INTRO -->
     <section class="workshop-intro">
-        <div class="workshop-intro__container">
+        <div class="workshop-intro__container" data-reveal="fade">
             <p class="workshop-intro__text">
-                Odlewaj eleganckie podkładki, podstawki i dekoracje 
-                w formach silikonowych. Gips polimerowy daje idealnie gładką powierzchnię 
-                i pozwala tworzyć trwałe, designerskie przedmioty. 
-                Dodasz pigmenty, stworzysz efekty marmurkowe — 
-                każdy odlew będzie niepowtarzalny.
+                Marzysz o stworzeniu własnej sztuki użytkowej? Gips polimerowy 
+                to idealny materiał — jego wytrzymałość przewyższa tradycyjny gips, 
+                a odwzorowanie detali zachwyca precyzją. Ekologiczny, trwały 
+                i piękny w każdym detalu.
             </p>
         </div>
     </section>
 
+    <!-- GALERIA: DUO -->
     <section class="workshop-gallery">
         <div class="gallery-block gallery-block--duo">
             <figure class="gallery-figure gallery-figure--left">
-                <img src="assets/images/workshops/gips-1.jpg" alt="Mieszanie gipsu polimerowego z pigmentami" loading="lazy">
+                <img 
+                    src="assets/images/workshops/gips-1.jpg" 
+                    alt="Formy silikonowe do odlewania gipsu polimerowego" 
+                    loading="lazy"
+                >
             </figure>
             <figure class="gallery-figure gallery-figure--right">
-                <img src="assets/images/workshops/gips-2.jpg" alt="Odlewanie gipsu w formy silikonowe" loading="lazy">
-            </figure>
-        </div>
-        <div class="gallery-block gallery-block--full">
-            <figure class="gallery-figure">
-                <img src="assets/images/workshops/gips-3.jpg" alt="Gotowe podkładki z gipsu polimerowego z efektem marmuru" loading="lazy">
+                <img 
+                    src="assets/images/workshops/gips-2.jpg" 
+                    alt="Mieszanie gipsu polimerowego z barwnikami" 
+                    loading="lazy"
+                >
             </figure>
         </div>
     </section>
 
+    <!-- O WARSZTACIE -->
+    <section class="workshop-about" data-reveal="fade">
+        <div class="workshop-about__container">
+            <h2 class="workshop-about__heading">O warsztacie</h2>
+            <p class="workshop-about__text">
+                Podczas warsztatów wprowadzimy cię w tajniki odlewów z gipsu 
+                polimerowego. Nauczysz się odpowiednio przygotować mieszankę, 
+                dobierać barwniki i przelewać ją do form silikonowych. Stworzysz 
+                własny przedmiot — tackę, miseczkę lub kolczyki — który po 
+                utwardzeniu zabierzesz ze sobą.
+            </p>
+        </div>
+    </section>
+
+    <!-- GALERIA: FULL WIDTH -->
+    <section class="workshop-gallery">
+        <div class="gallery-block gallery-block--full">
+            <figure class="gallery-figure">
+                <img 
+                    src="assets/images/workshops/gips-3.jpg" 
+                    alt="Proces odlewania gipsu polimerowego w formie silikonowej" 
+                    loading="lazy"
+                >
+            </figure>
+        </div>
+    </section>
+
+    <!-- CO CIĘ CZEKA -->
+    <section class="workshop-program" data-reveal="fade">
+        <div class="workshop-program__container">
+            <h2 class="workshop-program__heading">Co cię czeka</h2>
+            <div class="workshop-program__grid">
+                
+                <div class="workshop-program__item">
+                    <span class="workshop-program__number">01</span>
+                    <h3 class="workshop-program__title">Wstęp merytoryczny</h3>
+                    <p class="workshop-program__desc">
+                        Czym jest gips polimerowy, jakie ma zastosowania 
+                        i czym różni się od tradycyjnego gipsu.
+                    </p>
+                </div>
+
+                <div class="workshop-program__item">
+                    <span class="workshop-program__number">02</span>
+                    <h3 class="workshop-program__title">Zapoznanie z technikami</h3>
+                    <p class="workshop-program__desc">
+                        Odlewanie form, technika warstwowa, 
+                        zabawa z barwnikami i pigmentami mineralnymi.
+                    </p>
+                </div>
+
+                <div class="workshop-program__item">
+                    <span class="workshop-program__number">03</span>
+                    <h3 class="workshop-program__title">Praca własna</h3>
+                    <p class="workshop-program__desc">
+                        Stworzysz od podstaw swój własny przedmiot — tackę, 
+                        miseczkę lub kolczyki — który po utwardzeniu 
+                        zabierzesz ze sobą.
+                    </p>
+                </div>
+
+                <div class="workshop-program__item">
+                    <span class="workshop-program__number">04</span>
+                    <h3 class="workshop-program__title">Wykończenie</h3>
+                    <p class="workshop-program__desc">
+                        Ostatnie szlify — wygładzanie krawędzi, lakierowanie 
+                        i przygotowanie gotowego przedmiotu do zabrania.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA: DUO dolne -->
+    <section class="workshop-gallery">
+        <div class="gallery-block gallery-block--duo">
+            <figure class="gallery-figure gallery-figure--left">
+                <img 
+                    src="assets/images/workshops/gips-4.jpg" 
+                    alt="Gotowa tacka z gipsu polimerowego" 
+                    loading="lazy"
+                >
+            </figure>
+            <figure class="gallery-figure gallery-figure--right">
+                <img 
+                    src="assets/images/workshops/gips-5.jpg" 
+                    alt="Kolczyki i miseczki z gipsu polimerowego" 
+                    loading="lazy"
+                >
+            </figure>
+        </div>
+    </section>
+
+    <!-- ZABIERASZ ZE SOBĄ -->
+    <section class="workshop-takeaway" data-reveal="fade">
+        <div class="workshop-takeaway__container">
+            <h2 class="workshop-takeaway__heading">Zabierasz ze sobą</h2>
+            <p class="workshop-takeaway__text">
+                Samodzielnie odlany przedmiot oraz wiedzę, która pozwoli ci 
+                na dalsze eksperymenty z techniką gipsu polimerowego.
+            </p>
+        </div>
+    </section>
+
+    <!-- DETALE -->
     <section class="workshop-details">
         <div class="workshop-details__container">
             <div class="workshop-details__grid">
                 
                 <div class="workshop-detail">
-                    <h3 class="workshop-detail__title">Co stworzymy</h3>
-                    <ul class="workshop-detail__list">
-                        <li>Zestaw 4–6 podkładek pod kubki</li>
-                        <li>Dekoracyjna tacka lub podstawka</li>
-                        <li>Efekty marmurkowe i kolorystyczne</li>
-                        <li>Możliwość personalizacji kształtów</li>
-                    </ul>
-                </div>
-
-                <div class="workshop-detail">
                     <h3 class="workshop-detail__title">Czas trwania</h3>
                     <ul class="workshop-detail__list">
-                        <li>1.5 godziny</li>
-                        <li>Odbiór prac po wyschnięciu (24h)</li>
-                        <li>Wszystkie materiały w cenie</li>
+                        <li>ok. X godzin</li>
                     </ul>
                 </div>
 
                 <div class="workshop-detail">
-                    <h3 class="workshop-detail__title">Dla kogo</h3>
+                    <h3 class="workshop-detail__title">W cenie</h3>
                     <ul class="workshop-detail__list">
-                        <li>Miłośnicy designu i wnętrz</li>
-                        <li>Osoby szukające kreatywnego hobby</li>
-                        <li>Bez wymaganego doświadczenia</li>
-                        <li>Od 14 roku życia</li>
+                        <li>Gips polimerowy i barwniki</li>
+                        <li>Formy silikonowe</li>
+                        <li>Wszystkie narzędzia</li>
+                        <li>Gotowy przedmiot do zabrania</li>
                     </ul>
                 </div>
 
                 <div class="workshop-detail">
-                    <h3 class="workshop-detail__title">Materiały</h3>
+                    <h3 class="workshop-detail__title">Liczba miejsc</h3>
                     <ul class="workshop-detail__list">
-                        <li>Gips polimerowy premium</li>
-                        <li>Formy silikonowe (różne kształty)</li>
-                        <li>Pigmenty mineralne</li>
-                        <li>Impregnat do wykańczania</li>
-                        <li>Papier ścierny do szlifowania</li>
+                        <li>max X osób</li>
                     </ul>
                 </div>
 
@@ -121,10 +221,11 @@
         </div>
     </section>
 
+    <!-- CENA + CTA -->
     <section class="workshop-pricing">
-        <div class="workshop-pricing__container">
+        <div class="workshop-pricing__container" data-reveal="fade">
             <div class="workshop-pricing__price">
-                <span class="workshop-pricing__amount">100</span>
+                <span class="workshop-pricing__amount">XXX</span>
                 <span class="workshop-pricing__currency">zł</span>
                 <span class="workshop-pricing__per">/ osoba</span>
             </div>
@@ -135,11 +236,11 @@
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
-                <p class="workshop-pricing__note">Grupy 6–10 osób</p>
             </div>
         </div>
     </section>
 
+    <!-- STOPKA -->
     <footer class="footer">
         <div class="footer__container">
             <p class="footer__copyright">© 2026 Arbitraż Sztuki</p>
