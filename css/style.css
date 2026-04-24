@@ -275,10 +275,14 @@ img {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .workshop-card:first-child,
-    .workshop-card:last-child {
+    /* Pierwszy, czwarty i piąty card = pełna szerokość */
+    .workshop-card:nth-child(1),
+    .workshop-card:nth-child(4),
+    .workshop-card:nth-child(5) {
         grid-column: 1 / -1;
     }
+    
+    /* Drugi i trzeci = obok siebie (po 1fr każdy) */
 }
 
 .workshop-card {
