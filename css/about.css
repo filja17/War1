@@ -216,27 +216,28 @@
 
 @media (max-width: 768px) {
     .team-member {
-        grid-template-columns: 150px 1fr;
+        grid-template-columns: 200px 1fr;
         gap: var(--space-md);
     }
 }
 
 @media (max-width: 480px) {
     .team-member {
-        grid-template-columns: 120px 1fr;
-        gap: var(--space-sm);
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
     }
     
     .team-member__image img {
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 4 / 3;
+        max-height: 350px;
     }
     
     .team-member__name {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
-    
+
     .team-member__bio {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 }
 
