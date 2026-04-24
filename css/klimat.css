@@ -10,7 +10,7 @@
 
 .klimat-section {
     position: relative;
-    min-height: 500vh; /* Długa sekcja do scrollowania */
+    min-height: 800vh; /* Długa sekcja do scrollowania */
     width: 100%;
 }
 
@@ -206,7 +206,7 @@
 
 @media (max-width: 768px) {
     .klimat-section {
-        min-height: 400vh;
+        min-height: 600vh;
     }
     
     .klimat-word__text {
