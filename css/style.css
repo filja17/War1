@@ -474,5 +474,47 @@ img {
     .offer-testimonial__text::before {
         display: none;
     }
+
+   /* ========================================
+   OFFER HOW (dojazd info)
+   ======================================== */
+
+.offer-how {
+    padding: var(--space-xl) var(--space-lg);
+    text-align: center;
+}
+
+.offer-how__container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.offer-how__text {
+    font-family: var(--font-heading);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--color-text-light);
+    position: relative;
+    padding: var(--space-md) 0;
+}
+
+.offer-how__text::before,
+.offer-how__text::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
+}
+
+.offer-how__text::before {
+    margin-bottom: var(--space-md);
+}
+
+.offer-how__text::after {
+    margin-top: var(--space-md);
 }
 
