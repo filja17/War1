@@ -474,8 +474,9 @@ img {
     .offer-testimonial__text::before {
         display: none;
     }
+}
 
-   /* ========================================
+/* ========================================
    OFFER HOW (dojazd info)
    ======================================== */
 
@@ -517,4 +518,3 @@ img {
 .offer-how__text::after {
     margin-top: var(--space-md);
 }
-
